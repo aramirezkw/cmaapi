@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>KWIQ · Command</title>
+<style>x-dc{display:none!important}</style>
+</head>
+<body>
+
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="css/colors_and_type.css">
+<script src="vendor/image-slot.js"></script>
+<link rel="stylesheet" href="css/kwiq.css">
+</helmet>
+
+<div data-dash-root="" style="height:100vh;display:flex;flex-direction:column;background:var(--page-background);font-family:var(--font-sans);color:var(--label-primary);overflow:hidden;">
+
+  <!-- ===================== TOP BAR ===================== -->
+  <header style="height:64px;flex:none;background:var(--kw-neutral-900);display:flex;align-items:center;box-shadow:var(--shell-bar);position:relative;z-index:40;color:#fff;">
+    <div style="width:64px;height:64px;flex:none;background:var(--kw-brand-red);display:flex;align-items:center;justify-content:center;">
+      <img src="assets/kw-logo.svg" alt="kw" style="width:48px;height:48px;border-radius:4px;">
+    </div>
+    <nav style="display:flex;align-items:flex-start;gap:30px;padding-left:26px;">
+      <span style="font:var(--fw-regular) 22px/1 var(--font-sans);color:#fff;cursor:pointer;">command</span>
+      <span style="font:var(--fw-regular) 22px/1 var(--font-sans);color:rgba(255,255,255,.5);cursor:pointer;">connect</span>
+      <span style="font:var(--fw-regular) 22px/1 var(--font-sans);color:rgba(255,255,255,.5);cursor:pointer;">command<sup style="font-size:11px;font-weight:400;">MC</sup></span>
+    </nav>
+    <div style="flex:1;"></div>
+    <div style="display:flex;align-items:center;gap:18px;padding-right:22px;">
+      <!-- KWIQ -->
+      <button data-kwiq-open="" title="AI Assistant" style="display:inline-flex;align-items:center;gap:8px;height:40px;border:1.5px solid transparent;border-radius:999px;background:linear-gradient(#262932,#262932) padding-box,linear-gradient(100deg,#AF75FF,#359AF3,#0CADD3) border-box;cursor:pointer;padding:0 16px 0 13px;">
+        <span style="display:flex;color:#fff;flex:none;"><svg width="18" height="18" viewBox="0 0 64 64" fill="#fff"><path d="M22 6C22 4.89543 21.1046 4 20 4C18.8954 4 18 4.89543 18 6C18 12.6274 12.6274 18 6 18C4.89543 18 4 18.8954 4 20C4 21.1046 4.89543 22 6 22C12.6274 22 18 27.3726 18 34C18 35.1046 18.8954 36 20 36C21.1046 36 22 35.1046 22 34C22 27.3726 27.3726 22 34 22C35.1046 22 36 21.1046 36 20C36 18.8954 35.1046 18 34 18C27.3726 18 22 12.6274 22 6Z" ></path><path d="M50 18C50 16.8954 49.1046 16 48 16C46.8954 16 46 16.8954 46 18C46 20.6976 45.1861 22.6454 43.9157 23.9157C42.6454 25.1861 40.6976 26 38 26C36.8954 26 36 26.8954 36 28C36 29.1046 36.8954 30 38 30C40.6976 30 42.6454 30.8139 43.9157 32.0843C45.1861 33.3546 46 35.3024 46 38C46 39.1046 46.8954 40 48 40C49.1046 40 50 39.1046 50 38C50 35.3024 50.8139 33.3546 52.0843 32.0843C53.3546 30.8139 55.3024 30 58 30C59.1046 30 60 29.1046 60 28C60 26.8954 59.1046 26 58 26C55.3024 26 53.3546 25.1861 52.0843 23.9157C50.8139 22.6454 50 20.6976 50 18Z" ></path><path d="M34 38C34 36.8954 33.1046 36 32 36C30.8954 36 30 36.8954 30 38C30 40.6976 29.1861 42.6454 27.9157 43.9157C26.6454 45.1861 24.6976 46 22 46C20.8954 46 20 46.8954 20 48C20 49.1046 20.8954 50 22 50C24.6976 50 26.6454 50.8139 27.9157 52.0843C29.1861 53.3546 30 55.3024 30 58C30 59.1046 30.8954 60 32 60C33.1046 60 34 59.1046 34 58C34 55.3024 34.8139 53.3546 36.0843 52.0843C37.3546 50.8139 39.3024 50 42 50C43.1046 50 44 49.1046 44 48C44 46.8954 43.1046 46 42 46C39.3024 46 37.3546 45.1861 36.0843 43.9157C34.8139 42.6454 34 40.6976 34 38Z" ></path></svg></span>
+        <span style="font:var(--fw-bold) 14px/1 var(--font-sans);color:#fff;white-space:nowrap;letter-spacing:.01em;">AI Assistant</span>
+      </button>
+      <!-- marketplace -->
+      <button title="Marketplace" style="width:40px;height:40px;border:none;background:transparent;border-radius:6px;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#fff;" style-hover="background:rgba(255,255,255,.12);">
+        <svg width="24" height="22" viewBox="0 0 26 24" fill="currentColor"><path d="M 4 0 C 3.649 0 3.323 0.184 3.143 0.486 L 0.143 5.486 C 0.049 5.641 0 5.819 0 6 C 0 7.481 0.804 8.773 2 9.465 L 2 20.375 C 2 22.413 3.705 24 5.727 24 L 20.273 24 C 22.295 24 24 22.413 24 20.375 L 24 9.465 C 25.196 8.773 26 7.481 26 6 C 26 5.819 25.951 5.641 25.857 5.486 L 22.857 0.486 C 22.677 0.184 22.351 0 22 0 L 4 0 Z M 22 10 C 20.805 10 19.733 9.476 19 8.646 C 18.267 9.476 17.195 10 16 10 C 14.805 10 13.733 9.476 13 8.646 C 12.267 9.476 11.195 10 10 10 C 8.805 10 7.733 9.476 7 8.646 C 6.267 9.476 5.195 10 4 10 L 4 20.375 C 4 21.237 4.737 22 5.727 22 L 8 22 L 8 14 C 8 12.895 8.895 12 10 12 L 16 12 C 17.105 12 18 12.895 18 14 L 18 22 L 20.273 22 C 21.263 22 22 21.237 22 20.375 L 22 10 Z M 10 8 C 8.895 8 8 7.105 8 6 C 8 5.448 7.552 5 7 5 C 6.448 5 6 5.448 6 6 C 6 7.105 5.105 8 4 8 C 2.98 8 2.139 7.237 2.016 6.251 L 4.566 2 L 21.434 2 L 23.984 6.251 C 23.861 7.237 23.02 8 22 8 C 20.895 8 20 7.105 20 6 C 20 5.448 19.552 5 19 5 C 18.448 5 18 5.448 18 6 C 18 7.105 17.105 8 16 8 C 14.895 8 14 7.105 14 6 C 14 5.448 13.552 5 13 5 C 12.448 5 12 5.448 12 6 C 12 7.105 11.105 8 10 8 Z M 16 14 L 16 22 L 10 22 L 10 14 L 16 14 Z"></path></svg>
+      </button>
+      <!-- bell + badge -->
+      <div style="display:flex;align-items:center;gap:8px;">
+        <button title="Notifications" style="width:40px;height:40px;border:none;background:transparent;border-radius:6px;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#fff;" style-hover="background:rgba(255,255,255,.12);">
+          <svg width="22" height="24" viewBox="0 0 26 28" fill="currentColor"><path d="M 13 0 C 7.477 0 3 4.477 3 10 L 3 18.126 C 1.275 18.57 0 20.136 0 22 C 0 24.209 1.791 26 4 26 L 10.171 26 C 10.583 27.165 11.694 28 13 28 C 14.306 28 15.417 27.165 15.829 26 L 22 26 C 24.209 26 26 24.209 26 22 C 26 20.136 24.725 18.57 23 18.126 L 23 10 C 23 4.477 18.523 0 13 0 Z M 5 10 C 5 5.582 8.582 2 13 2 C 17.418 2 21 5.582 21 10 L 21 19 C 21 19.552 21.448 20 22 20 C 23.105 20 24 20.895 24 22 C 24 23.105 23.105 24 22 24 L 4 24 C 2.895 24 2 23.105 2 22 C 2 20.895 2.895 20 4 20 C 4.552 20 5 19.552 5 19 L 5 10 Z"></path></svg>
+        </button>
+        <span data-unread="" style="background:#F2555A;color:#fff;font:var(--fw-extrabold) 13px/1 var(--font-sans);padding:5px 9px;border-radius:999px;min-width:30px;text-align:center;">211</span>
+      </div>
+      <!-- account -->
+      <button style="display:flex;align-items:center;gap:11px;background:transparent;border:none;cursor:pointer;padding:5px 8px;border-radius:8px;margin-left:2px;" style-hover="background:rgba(255,255,255,.1);">
+        <span style="width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,#0a7c98,#00566a);color:#fff;display:flex;align-items:center;justify-content:center;font:var(--fw-extrabold) 15px/1 var(--font-sans);flex:none;">NR</span>
+        <span style="text-align:left;line-height:1.1;">
+          <span style="display:flex;align-items:center;gap:7px;">
+            <span style="font:var(--fw-extrabold) 15px/18px var(--font-sans);color:#fff;white-space:nowrap;">Nina Royals</span>
+            <svg width="11" height="11" viewBox="0 0 32 32" fill="rgba(255,255,255,.65)"><path d="M 19.002 0 L 1.002 0 C 0.111 0 -0.335 1.077 0.295 1.707 L 9.295 10.707 C 9.685 11.098 10.319 11.098 10.709 10.707 L 19.709 1.707 C 20.339 1.077 19.893 0 19.002 0 Z" transform="translate(5.998 11)"></path></svg>
+          </span>
+          <span style="display:flex;align-items:center;gap:5px;color:rgba(255,255,255,.6);font:var(--fw-regular) 12px/16px var(--font-sans);margin-top:2px;white-space:nowrap;">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="8" r="3"></circle><path d="M2 20c0-3.3 2.7-5 6-5s6 1.7 6 5"></path><circle cx="17.5" cy="9" r="2.2"></circle><path d="M16 14.4c2.9.2 5 1.7 5 5"></path></svg>
+            Nina Royals Team
+          </span>
+        </span>
+      </button>
+      <!-- help -->
+      <button title="Help" style="width:34px;height:34px;border-radius:50%;border:1.5px solid rgba(255,255,255,.4);background:transparent;color:rgba(255,255,255,.85);font:var(--fw-bold) 16px/1 var(--font-sans);cursor:pointer;display:flex;align-items:center;justify-content:center;" style-hover="background:rgba(255,255,255,.12);">?</button>
+    </div>
+  </header>
+
+  <!-- ===================== BODY ROW ===================== -->
+  <div data-body-row="" style="flex:1;display:flex;min-height:0;">
+
+    <!-- SIDEBAR -->
+    <aside style="width:64px;flex:none;background:#fff;box-shadow:var(--shadow12);position:relative;z-index:30;padding-top:8px;display:flex;flex-direction:column;gap:2px;">
+      <button style="position:relative;width:64px;height:48px;border:none;background:var(--action-hover-fill);cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--action);">
+        <span style="position:absolute;left:0;top:7px;bottom:7px;width:3px;border-radius:999px;background:var(--action);"></span>
+        <svg width="24" height="22" viewBox="0 0 28 26" fill="currentColor"><path d="M 13.431 0.178 C 13.773 -0.059 14.227 -0.059 14.569 0.178 L 27.569 9.178 C 28.023 9.492 28.137 10.115 27.822 10.569 C 27.508 11.023 26.885 11.137 26.431 10.822 L 26 10.524 L 26 22 C 26 24.209 24.209 26 22 26 L 6 26 C 3.791 26 2 24.209 2 22 L 2 10.524 L 1.569 10.822 C 1.115 11.137 0.492 11.023 0.178 10.569 C -0.136 10.115 -0.023 9.492 0.431 9.178 L 13.431 0.178 Z M 14 2.216 L 24 9.139 L 24 22 C 24 23.105 23.105 24 22 24 L 19 24 L 19 16 C 19 14.895 18.105 14 17 14 L 11 14 C 9.896 14 9 14.895 9 16 L 9 24 L 6 24 C 4.896 24 4 23.105 4 22 L 4 9.139 L 14 2.216 Z M 11 24 L 17 24 L 17 16 L 11 16 L 11 24 Z" fill-rule="evenodd"></path></svg>
+      </button>
+      <button style="width:64px;height:48px;border:none;background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--label-tertiary);" style-hover="background:var(--kw-neutral-100);">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M 0 4 C 0 1.791 1.791 0 4 0 L 20 0 C 22.209 0 24 1.791 24 4 L 24 20 C 24 22.209 22.209 24 20 24 L 19.839 24 C 19.829 24 19.819 24 19.809 24 L 4.19 24 C 4.181 24 4.171 24 4.161 24 L 4 24 C 1.791 24 0 22.209 0 20 L 0 4 Z M 22 20 C 22 20.871 21.443 21.612 20.666 21.886 C 20.207 19.357 19.276 17.437 17.883 16.114 C 17.067 15.339 16.126 14.801 15.097 14.461 C 15.303 14.232 15.491 13.987 15.66 13.734 C 16.493 12.487 17 10.865 17 9.286 C 17 7.682 16.475 6.343 15.537 5.401 C 14.603 4.464 13.337 4 12 4 C 10.663 4 9.397 4.464 8.463 5.401 C 7.525 6.343 7 7.682 7 9.286 C 7 10.865 7.507 12.487 8.34 13.734 C 8.509 13.987 8.697 14.232 8.903 14.461 C 7.874 14.801 6.933 15.339 6.117 16.114 C 4.724 17.437 3.793 19.357 3.334 21.886 C 2.557 21.612 2 20.871 2 20 L 2 4 C 2 2.895 2.895 2 4 2 L 20 2 C 21.105 2 22 2.895 22 4 L 22 20 Z M 18.652 22 L 5.348 22 C 5.766 19.894 6.532 18.479 7.495 17.564 C 8.609 16.506 10.11 16 12 16 C 13.89 16 15.391 16.506 16.505 17.564 C 17.468 18.479 18.234 19.894 18.652 22 Z M 9 9.286 C 9 8.128 9.37 7.325 9.88 6.813 C 10.394 6.298 11.128 6 12 6 C 12.872 6 13.606 6.298 14.12 6.813 C 14.63 7.325 15 8.128 15 9.286 C 15 10.467 14.612 11.703 13.997 12.623 C 13.368 13.564 12.636 14 12 14 C 11.364 14 10.632 13.564 10.003 12.623 C 9.388 11.703 9 10.467 9 9.286 Z" fill-rule="evenodd"></path></svg>
+      </button>
+      <button style="width:64px;height:48px;border:none;background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--label-tertiary);" style-hover="background:var(--kw-neutral-100);">
+        <svg width="24" height="18" viewBox="0 0 28 20" fill="currentColor"><path d="M 9.707 1.707 C 10.098 1.317 10.098 0.683 9.707 0.293 C 9.317 -0.098 8.683 -0.098 8.293 0.293 L 3 5.586 L 1.707 4.293 C 1.317 3.902 0.683 3.902 0.293 4.293 C -0.098 4.683 -0.098 5.317 0.293 5.707 L 2.293 7.707 C 2.683 8.098 3.317 8.098 3.707 7.707 L 9.707 1.707 Z"></path><path d="M 12 2 C 12 1.448 12.448 1 13 1 L 23 1 C 23.552 1 24 1.448 24 2 C 24 2.552 23.552 3 23 3 L 13 3 C 12.448 3 12 2.552 12 2 Z"></path><path d="M 13 5 C 12.448 5 12 5.448 12 6 C 12 6.552 12.448 7 13 7 L 27 7 C 27.552 7 28 6.552 28 6 C 28 5.448 27.552 5 27 5 L 13 5 Z"></path><path d="M 0 16 C 0 13.791 1.791 12 4 12 C 6.209 12 8 13.791 8 16 C 8 18.209 6.209 20 4 20 C 1.791 20 0 18.209 0 16 Z M 4 14 C 2.895 14 2 14.895 2 16 C 2 17.105 2.895 18 4 18 C 5.105 18 6 17.105 6 16 C 6 14.895 5.105 14 4 14 Z"></path><path d="M 13 13 C 12.448 13 12 13.448 12 14 C 12 14.552 12.448 15 13 15 L 23 15 C 23.552 15 24 14.552 24 14 C 24 13.448 23.552 13 23 13 L 13 13 Z"></path><path d="M 13 17 C 12.448 17 12 17.448 12 18 C 12 18.552 12.448 19 13 19 L 27 19 C 27.552 19 28 18.552 28 18 C 28 17.448 27.552 17 27 17 L 13 17 Z"></path></svg>
+      </button>
+      <button style="width:64px;height:48px;border:none;background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--label-tertiary);" style-hover="background:var(--kw-neutral-100);">
+        <svg width="22" height="22" viewBox="0 0 27.783 28" fill="currentColor"><path d="M 2 4 C 2 2.895 2.895 2 4 2 L 20 2 C 21.105 2 22 2.895 22 4 L 22 15 C 22 15.552 22.448 16 23 16 C 23.552 16 24 15.552 24 15 L 24 4 C 24 1.791 22.209 0 20 0 L 4 0 C 1.791 0 0 1.791 0 4 L 0 20 C 0 22.209 1.791 24 4 24 L 16 24 C 16.552 24 17 23.552 17 23 C 17 22.448 16.552 22 16 22 L 4 22 C 2.895 22 2 21.105 2 20 L 2 4 Z" fill-rule="nonzero"></path><path d="M 8 13 C 9.306 13 10.417 13.835 10.829 15 L 18 15 C 18.552 15 19 15.448 19 16 C 19 16.552 18.552 17 18 17 L 10.829 17 C 10.417 18.165 9.306 19 8 19 C 6.343 19 5 17.657 5 16 C 5 14.343 6.343 13 8 13 Z M 8 15 C 8.552 15 9 15.448 9 16 C 9 16.552 8.552 17 8 17 C 7.448 17 7 16.552 7 16 C 7 15.448 7.448 15 8 15 Z" fill-rule="evenodd"></path><path d="M 8 5 C 9.306 5 10.417 5.835 10.829 7 L 18 7 C 18.552 7 19 7.448 19 8 C 19 8.552 18.552 9 18 9 L 10.829 9 C 10.417 10.165 9.306 11 8 11 C 6.343 11 5 9.657 5 8 C 5 6.343 6.343 5 8 5 Z M 8 7 C 7.448 7 7 7.448 7 8 C 7 8.552 7.448 9 8 9 C 8.552 9 9 8.552 9 8 C 9 7.448 8.552 7 8 7 Z" fill-rule="evenodd"></path></svg>
+      </button>
+      <button style="width:64px;height:48px;border:none;background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--label-tertiary);" style-hover="background:var(--kw-neutral-100);">
+        <svg width="20" height="22" viewBox="0 0 24 28" fill="currentColor"><path d="M 4.722 4.722 C 3.015 6.429 2 8.911 2 12 C 2 14.067 2.748 16.102 3.871 17.97 C 4.595 16.825 5.52 15.936 6.621 15.291 C 7.307 14.889 8.048 14.591 8.833 14.382 C 8.655 14.176 8.49 13.958 8.34 13.734 C 7.507 12.487 7 10.865 7 9.286 C 7 7.682 7.525 6.343 8.463 5.401 C 9.397 4.464 10.663 4 12 4 C 13.337 4 14.603 4.464 15.537 5.401 C 16.475 6.343 17 7.682 17 9.286 C 17 10.865 16.493 12.487 15.66 13.734 C 15.51 13.958 15.345 14.176 15.167 14.383 C 15.951 14.591 16.692 14.889 17.379 15.291 C 18.479 15.936 19.404 16.826 20.129 17.971 C 21.252 16.103 22 14.067 22 12 C 22 8.911 20.985 6.429 19.278 4.722 C 17.571 3.015 15.089 2 12 2 C 8.911 2 6.429 3.015 4.722 4.722 Z M 18.867 19.815 C 18.244 18.517 17.393 17.617 16.368 17.017 C 15.202 16.334 13.74 16 12 16 C 10.259 16 8.798 16.334 7.631 17.017 C 6.607 17.617 5.755 18.517 5.133 19.814 C 5.672 20.517 6.252 21.185 6.848 21.81 C 8.116 23.138 9.414 24.223 10.446 24.972 C 10.963 25.346 11.403 25.628 11.729 25.811 C 11.838 25.872 11.928 25.919 12 25.953 C 12.072 25.919 12.162 25.872 12.271 25.811 C 12.597 25.628 13.037 25.346 13.554 24.972 C 14.586 24.223 15.884 23.138 17.152 21.81 C 17.747 21.185 18.327 20.517 18.867 19.815 Z M 3.155 20.507 C 1.387 18.066 0 15.135 0 12 C 0 8.462 1.172 5.444 3.308 3.308 C 5.444 1.172 8.462 0 12 0 C 15.538 0 18.556 1.172 20.692 3.308 C 22.828 5.444 24 8.462 24 12 C 24 16.393 21.277 20.385 18.598 23.19 C 17.241 24.612 15.851 25.777 14.727 26.591 C 14.166 26.997 13.661 27.325 13.249 27.556 C 13.044 27.671 12.849 27.77 12.672 27.843 C 12.535 27.9 12.278 28 12 28 C 11.722 28 11.465 27.9 11.328 27.843 C 11.151 27.77 10.956 27.671 10.751 27.556 C 10.339 27.325 9.834 26.997 9.273 26.591 C 8.149 25.777 6.759 24.612 5.402 23.19 C 4.649 22.402 3.892 21.519 3.194 20.561 C 3.18 20.543 3.167 20.525 3.155 20.507 Z M 9.88 6.813 C 9.37 7.325 9 8.128 9 9.286 C 9 10.467 9.388 11.703 10.003 12.623 C 10.632 13.564 11.364 14 12 14 C 12.636 14 13.368 13.564 13.997 12.623 C 14.612 11.703 15 10.467 15 9.286 C 15 8.128 14.63 7.325 14.12 6.813 C 13.606 6.298 12.872 6 12 6 C 11.128 6 10.394 6.298 9.88 6.813 Z" fill-rule="evenodd"></path></svg>
+      </button>
+      <button style="width:64px;height:48px;border:none;background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--label-tertiary);" style-hover="background:var(--kw-neutral-100);">
+        <svg width="24" height="18" viewBox="0 0 28 20" fill="currentColor"><path d="M 14 0 C 13.735 0 13.48 0.105 13.293 0.293 L 11.586 2 L 8 2 C 7.735 2 7.48 2.105 7.293 2.293 L 4.586 5 L 3 5 C 1.343 5 0 6.343 0 8 L 0 15 C 0 16.657 1.343 18 3 18 L 4.792 18 C 4.938 18.062 5.129 18.143 5.365 18.239 C 5.838 18.431 6.495 18.687 7.234 18.944 C 8.668 19.443 10.563 20 12 20 C 13.64 20 15.266 19.09 16.612 18.061 C 17.052 17.726 17.478 17.364 17.885 16.993 C 17.923 16.998 17.961 17 18 17 L 20 17 C 20.952 17 21.85 16.689 22.469 16.414 C 22.787 16.272 23.051 16.131 23.281 16 L 25 16 C 26.657 16 28 14.657 28 13 L 28 6 C 28 4.343 26.657 3 25 3 L 23.414 3 L 20.707 0.293 C 20.52 0.105 20.265 0 20 0 L 14 0 Z M 19.847 15 L 20 15 C 20.548 15 21.15 14.811 21.656 14.586 C 22.105 14.369 22.404 14.194 22.446 14.168 C 22.61 14.058 22.803 14 23 14 L 25 14 C 25.552 14 26 13.552 26 13 L 26 6 C 26 5.448 25.552 5 25 5 L 23 5 C 22.735 5 22.48 4.895 22.293 4.707 L 19.586 2 L 14.414 2 L 12.706 3.708 L 10.624 5.791 C 9.997 6.509 10.025 7.602 10.71 8.287 C 11.425 9.001 12.583 9.001 13.298 8.287 L 15.293 6.293 C 15.684 5.902 16.317 5.902 16.707 6.293 L 19.91 9.496 C 21.281 10.867 21.506 13.095 20.167 14.637 C 20.064 14.755 19.958 14.876 19.847 15 Z M 5.406 16.086 C 5.278 16.029 5.14 16 5 16 L 3 16 C 2.448 16 2 15.552 2 15 L 2 8 C 2 7.448 2.448 7 3 7 L 5 7 C 5.265 7 5.52 6.895 5.707 6.707 L 8.414 4 L 9.581 4 L 9.157 4.432 C 7.802 5.959 7.855 8.26 9.296 9.701 C 10.792 11.197 13.216 11.197 14.712 9.701 L 16 8.414 L 18.496 10.91 C 19.199 11.613 19.241 12.653 18.657 13.325 C 17.779 14.336 16.626 15.534 15.398 16.472 C 14.137 17.435 12.957 18 12 18 C 10.937 18 9.332 17.557 7.891 17.056 C 7.193 16.813 6.569 16.569 6.119 16.386 C 5.895 16.295 5.714 16.219 5.591 16.166 L 5.451 16.106 L 5.406 16.086 Z" fill-rule="evenodd"></path></svg>
+      </button>
+      <button style="width:64px;height:48px;border:none;background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--label-tertiary);" style-hover="background:var(--kw-neutral-100);">
+        <svg width="24" height="20" viewBox="0 0 28 23.463" fill="currentColor"><path d="M 20.188 0.175 C 21.51 -0.413 23 0.555 23 2.002 L 23 4.463 C 25.761 4.463 28 6.702 28 9.463 C 28 12.225 25.761 14.463 23 14.463 L 23 16.925 C 23 18.372 21.51 19.34 20.188 18.752 L 12.788 15.463 L 10 15.463 L 10 22.463 C 10 23.016 9.552 23.463 9 23.463 C 8.448 23.463 8 23.016 8 22.463 L 8 15.463 L 6 15.463 C 2.686 15.463 0 12.777 0 9.463 C 0 6.237 2.547 3.605 5.74 3.469 L 5.979 3.464 L 6 3.463 L 12.788 3.463 L 20.188 0.175 Z M 26 9.463 C 26 11.12 24.657 12.463 23 12.463 L 23 6.463 C 24.657 6.463 26 7.807 26 9.463 Z M 21 2.002 L 21 16.925 L 13.406 13.55 C 13.278 13.493 13.14 13.463 13 13.463 L 10 13.463 L 10 5.463 L 13 5.463 C 13.14 5.463 13.278 5.434 13.406 5.377 L 21 2.002 Z M 6.011 5.463 L 8 5.463 L 8 13.463 L 6 13.463 C 3.791 13.463 2 11.673 2 9.463 C 2 7.316 3.692 5.564 5.816 5.468 L 6.011 5.463 Z" fill-rule="evenodd"></path></svg>
+      </button>
+      <button style="width:64px;height:48px;border:none;background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--label-tertiary);" style-hover="background:var(--kw-neutral-100);">
+        <svg width="24" height="20" viewBox="0 0 28 24" fill="currentColor"><path d="M 20 2 C 20 0.895 20.896 0 22 0 L 24 0 C 25.105 0 26 0.895 26 2 L 26 9.382 L 27.447 10.106 C 27.941 10.353 28.142 10.953 27.895 11.447 C 27.648 11.941 27.047 12.141 26.553 11.894 L 26 11.618 L 26 22 C 26 23.105 25.105 24 24 24 L 22 24 C 20.896 24 20 23.105 20 22 L 20 13.414 L 17 16.414 L 17 22 C 17 23.105 16.105 24 15 24 L 13 24 C 11.896 24 11 23.105 11 22 L 11 18.358 L 8 17.691 L 8 22 C 8 23.105 7.105 24 6 24 L 4 24 C 2.896 24 2 23.105 2 22 L 2 18.618 L 1.447 18.894 C 0.953 19.141 0.353 18.941 0.106 18.447 C -0.141 17.953 0.059 17.353 0.553 17.106 L 2 16.382 L 2 13 C 2 11.895 2.896 11 4 11 L 6 11 C 7.105 11 8 11.895 8 13 L 8 15.642 L 11 16.309 L 11 9 C 11 7.895 11.896 7 13 7 L 15 7 C 16.105 7 17 7.895 17 9 L 17 13.586 L 20 10.586 L 20 2 Z M 22 11.414 L 22 22 L 24 22 L 24 10.618 L 23.198 10.217 L 22 11.414 Z M 24 8.382 L 23.447 8.106 C 23.062 7.913 22.597 7.989 22.293 8.293 L 22 8.586 L 22 2 L 24 2 L 24 8.382 Z M 15 15.586 L 15 9 L 13 9 L 13 16.753 L 13.681 16.905 L 15 15.586 Z M 13 18.802 L 13 22 L 15 22 L 15 18.414 L 14.707 18.707 C 14.466 18.949 14.117 19.05 13.783 18.976 L 13 18.802 Z M 6 15.198 L 6 13 L 4 13 L 4 15.382 L 4.553 15.106 C 4.758 15.003 4.993 14.974 5.217 15.024 L 6 15.198 Z M 4 17.618 L 4 22 L 6 22 L 6 17.247 L 5.13 17.053 L 4 17.618 Z" fill-rule="evenodd"></path></svg>
+      </button>
+      <button style="width:64px;height:48px;border:none;background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--label-tertiary);" style-hover="background:var(--kw-neutral-100);">
+        <svg width="22" height="22" viewBox="0 0 26 26" fill="currentColor"><path d="M 23.902 2.098 C 23.772 1.967 23.561 1.967 23.431 2.098 L 13.454 10.705 C 13.815 10.928 14.159 11.202 14.48 11.523 C 14.799 11.843 15.072 12.186 15.295 12.547 L 23.852 2.623 C 24.033 2.439 24.033 2.228 23.902 2.098 Z M 15.997 14.795 L 25.346 3.953 C 26.228 3.04 26.218 1.585 25.317 0.683 C 24.415 -0.218 22.96 -0.228 22.047 0.654 L 11.205 10.003 C 11.155 10.001 11.105 10 11.054 10 C 9.801 10 8.606 10.544 7.629 11.523 C 6.379 12.774 5.96 14.712 5.838 16.181 C 5.774 16.945 5.785 17.654 5.83 18.199 C 5.852 18.47 5.885 18.716 5.925 18.916 C 5.945 19.015 5.971 19.122 6.005 19.225 C 6.026 19.289 6.103 19.517 6.292 19.707 C 6.482 19.896 6.71 19.973 6.774 19.995 C 6.876 20.029 6.983 20.055 7.082 20.075 C 7.283 20.116 7.529 20.149 7.8 20.172 C 8.345 20.218 9.054 20.231 9.819 20.168 C 11.289 20.048 13.229 19.632 14.48 18.38 C 15.457 17.401 16 16.205 16 14.951 C 16 14.899 15.999 14.847 15.997 14.795 Z M 4 4 C 2.895 4 2 4.895 2 6 L 2 22 C 2 23.105 2.895 24 4 24 L 20 24 C 21.105 24 22 23.105 22 22 L 22 11.5 C 22 10.948 22.448 10.5 23 10.5 C 23.552 10.5 24 10.948 24 11.5 L 24 22 C 24 24.209 22.209 26 20 26 L 4 26 C 1.791 26 0 24.209 0 22 L 0 6 C 0 3.791 1.791 2 4 2 L 14.5 2 C 15.052 2 15.5 2.448 15.5 3 C 15.5 3.552 15.052 4 14.5 4 L 4 4 Z M 9.044 12.936 C 9.704 12.275 10.408 12 11.054 12 C 11.7 12 12.404 12.275 13.064 12.936 C 13.724 13.597 14 14.303 14 14.951 C 14 15.599 13.724 16.305 13.064 16.966 C 12.338 17.693 11.016 18.064 9.656 18.175 C 9.006 18.228 8.408 18.216 7.969 18.179 C 7.922 18.175 7.877 18.171 7.835 18.166 C 7.831 18.125 7.827 18.08 7.823 18.034 C 7.787 17.595 7.777 16.998 7.831 16.347 C 7.944 14.989 8.317 13.665 9.044 12.936 Z" fill-rule="evenodd"></path></svg>
+      </button>
+      <button style="width:64px;height:48px;border:none;background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--label-tertiary);" style-hover="background:var(--kw-neutral-100);">
+        <svg width="22" height="22" viewBox="0 0 28 28" fill="currentColor"><path d="M 2 1 C 2 0.448 1.552 0 1 0 C 0.448 0 0 0.448 0 1 L 0 27 C 0 27.552 0.448 28 1 28 C 1.552 28 2 27.552 2 27 L 2 4 L 10 4 L 10 6 L 7 6 C 5.343 6 4 7.343 4 9 L 4 21 C 4 22.657 5.343 24 7 24 L 23 24 C 24.657 24 26 22.657 26 21 L 26 9 C 26 7.343 24.657 6 23 6 L 20 6 L 20 4 L 27 4 C 27.552 4 28 3.552 28 3 C 28 2.448 27.552 2 27 2 L 2 2 L 2 1 Z M 12 6 L 12 4 L 18 4 L 18 6 L 12 6 Z M 10 9 L 10 8 L 7 8 C 6.448 8 6 8.448 6 9 L 6 21 C 6 21.552 6.448 22 7 22 L 23 22 C 23.552 22 24 21.552 24 21 L 24 9 C 24 8.448 23.552 8 23 8 L 20 8 L 20 9 C 20 9.552 19.552 10 19 10 C 18.448 10 18 9.552 18 9 L 18 8 L 12 8 L 12 9 C 12 9.552 11.552 10 11 10 C 10.448 10 10 9.552 10 9 Z" fill-rule="evenodd"></path></svg>
+      </button>
+    </aside>
+
+    <!-- MAIN -->
+    <main style="flex:1;min-width:0;overflow-y:auto;background:var(--page-background);padding:24px 32px 56px;">
+
+      <!-- header -->
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:22px;">
+        <h1 data-greeting="" style="font:var(--fw-bold) 32px/40px var(--font-sans);color:var(--label-primary);margin:0;">Welcome Home, Nina</h1>
+        <button style="display:flex;align-items:center;gap:9px;background:#fff;border:none;border-radius:8px;box-shadow:var(--shadow04);padding:11px 18px;cursor:pointer;color:var(--action);font:var(--fw-bold) 15px/1 var(--font-sans);" style-hover="box-shadow:var(--shadow12);">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4L18.5 9.5l-4-4L4 16v4z"></path><path d="M13.5 6.5l4 4"></path></svg>
+          Customize
+        </button>
+      </div>
+
+      <!-- stat pills -->
+      <div style="display:flex;gap:16px;margin-bottom:24px;flex-wrap:wrap;">
+        <div style="display:flex;align-items:center;gap:13px;background:#fff;border-radius:999px;box-shadow:var(--shadow04);box-sizing:border-box;height:48px;padding:0 18px;">
+          <span style="width:24px;height:24px;flex:none;box-sizing:border-box;border-radius:999px;border:1.5px solid var(--action);color:var(--action);display:flex;align-items:center;justify-content:center;font:var(--fw-extrabold) 11px/1 var(--font-sans);">L</span>
+          <span style="flex:1;min-width:0;">
+            <span style="display:block;font:var(--fw-extrabold) 16px/20px var(--font-sans);color:var(--label-primary);white-space:nowrap;">Leads Never Contacted</span>
+            <span style="display:block;font:var(--fw-regular) 13px/16px var(--font-sans);color:var(--label-tertiary);margin-top:2px;">3 this week</span>
+          </span>
+          <span style="background:var(--action);color:#fff;font:var(--fw-extrabold) 12px/1 var(--font-sans);min-width:30px;height:30px;padding:0 8px;border-radius:999px;flex:none;display:flex;align-items:center;justify-content:center;">152</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:13px;background:#fff;border-radius:999px;box-shadow:var(--shadow04);box-sizing:border-box;height:48px;padding:0 18px;">
+          <span style="flex:none;color:var(--action);display:flex;"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M 0 4 C 0 1.791 1.791 0 4 0 L 20 0 C 22.209 0 24 1.791 24 4 L 24 20 C 24 22.209 22.209 24 20 24 L 4 24 C 1.791 24 0 22.209 0 20 L 0 4 Z M 22 20 C 22 20.871 21.443 21.612 20.666 21.886 C 20.207 19.357 19.276 17.437 17.883 16.114 C 17.067 15.339 16.126 14.801 15.097 14.461 C 15.303 14.232 15.491 13.987 15.66 13.734 C 16.493 12.487 17 10.865 17 9.286 C 17 7.682 16.475 6.343 15.537 5.401 C 14.603 4.464 13.337 4 12 4 C 10.663 4 9.397 4.464 8.463 5.401 C 7.525 6.343 7 7.682 7 9.286 C 7 10.865 7.507 12.487 8.34 13.734 C 8.509 13.987 8.697 14.232 8.903 14.461 C 7.874 14.801 6.933 15.339 6.117 16.114 C 4.724 17.437 3.793 19.357 3.334 21.886 C 2.557 21.612 2 20.871 2 20 L 2 4 C 2 2.895 2.895 2 4 2 L 20 2 C 21.105 2 22 2.895 22 4 L 22 20 Z M 18.652 22 L 5.348 22 C 5.766 19.894 6.532 18.479 7.495 17.564 C 8.609 16.506 10.11 16 12 16 C 13.89 16 15.391 16.506 16.505 17.564 C 17.468 18.479 18.234 19.894 18.652 22 Z M 9 9.286 C 9 8.128 9.37 7.325 9.88 6.813 C 10.394 6.298 11.128 6 12 6 C 12.872 6 13.606 6.298 14.12 6.813 C 14.63 7.325 15 8.128 15 9.286 C 15 10.467 14.612 11.703 13.997 12.623 C 13.368 13.564 12.636 14 12 14 C 11.364 14 10.632 13.564 10.003 12.623 C 9.388 11.703 9 10.467 9 9.286 Z" fill-rule="evenodd"></path></svg></span>
+          <span style="flex:1;min-width:0;">
+            <span style="display:block;font:var(--fw-extrabold) 16px/20px var(--font-sans);color:var(--label-primary);white-space:nowrap;">Recently Active</span>
+            <span style="display:block;font:var(--fw-regular) 13px/16px var(--font-sans);color:var(--label-tertiary);margin-top:2px;">--</span>
+          </span>
+          <span style="background:var(--action);color:#fff;font:var(--fw-extrabold) 12px/1 var(--font-sans);min-width:30px;height:30px;padding:0 8px;border-radius:999px;flex:none;display:flex;align-items:center;justify-content:center;">–</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:13px;background:#fff;border-radius:999px;box-shadow:var(--shadow04);box-sizing:border-box;height:48px;padding:0 18px;">
+          <span style="flex:none;color:var(--action);display:flex;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"></path><path d="M5 21v-7a3 3 0 0 1 3-3h8a3 3 0 0 1 3 3v7"></path><path d="M3.6 14.5c1.4 1.3 2.8 1.3 4.2 0s2.8-1.3 4.2 0 2.8 1.3 4.2 0 2.8-1.3 4.2 0"></path><path d="M12 8V5"></path><circle cx="12" cy="3.4" r="1"></circle></svg></span>
+          <span style="flex:1;min-width:0;">
+            <span style="display:block;font:var(--fw-extrabold) 16px/20px var(--font-sans);color:var(--label-primary);white-space:nowrap;">Birthdays</span>
+            <span style="display:block;font:var(--fw-regular) 13px/16px var(--font-sans);color:var(--label-tertiary);margin-top:2px;">1 on 07-10</span>
+          </span>
+          <span style="background:var(--action);color:#fff;font:var(--fw-extrabold) 12px/1 var(--font-sans);min-width:30px;height:30px;padding:0 8px;border-radius:999px;flex:none;display:flex;align-items:center;justify-content:center;">1</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:13px;background:#fff;border-radius:999px;box-shadow:var(--shadow04);box-sizing:border-box;height:48px;padding:0 18px;">
+          <span style="flex:none;color:var(--action);display:flex;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.5L12 4l9 7.5"></path><path d="M5 10.2V20h14v-9.8"></path><path d="M10 20v-5h4v5"></path></svg></span>
+          <span style="flex:1;min-width:0;">
+            <span style="display:block;font:var(--fw-extrabold) 16px/20px var(--font-sans);color:var(--label-primary);white-space:nowrap;">Anniversaries</span>
+            <span style="display:block;font:var(--fw-regular) 13px/16px var(--font-sans);color:var(--label-tertiary);margin-top:2px;">1 on 07-05</span>
+          </span>
+          <span style="background:var(--action);color:#fff;font:var(--fw-extrabold) 12px/1 var(--font-sans);min-width:30px;height:30px;padding:0 8px;border-radius:999px;flex:none;display:flex;align-items:center;justify-content:center;">2</span>
+        </div>
+      </div>
+
+      <!-- two columns -->
+      <div style="display:grid;grid-template-columns:minmax(0,1.85fr) minmax(0,1fr);gap:24px;align-items:start;">
+
+        <!-- LEFT -->
+        <div style="display:flex;flex-direction:column;gap:24px;min-width:0;">
+
+          <!-- TASKS CARD -->
+          <div style="background:#fff;border-radius:4px;box-shadow:var(--shadow04);overflow:hidden;">
+            <div style="display:flex;align-items:center;gap:18px;padding:18px 24px;flex-wrap:wrap;">
+              <div style="display:flex;align-items:center;gap:12px;margin-right:auto;">
+                <span style="color:var(--action);display:flex;"><svg width="26" height="19" viewBox="0 0 28 20" fill="currentColor"><path d="M 9.707 1.707 C 10.098 1.317 10.098 0.683 9.707 0.293 C 9.317 -0.098 8.683 -0.098 8.293 0.293 L 3 5.586 L 1.707 4.293 C 1.317 3.902 0.683 3.902 0.293 4.293 C -0.098 4.683 -0.098 5.317 0.293 5.707 L 2.293 7.707 C 2.683 8.098 3.317 8.098 3.707 7.707 L 9.707 1.707 Z"></path><path d="M 12 2 C 12 1.448 12.448 1 13 1 L 23 1 C 23.552 1 24 1.448 24 2 C 24 2.552 23.552 3 23 3 L 13 3 C 12.448 3 12 2.552 12 2 Z"></path><path d="M 13 5 C 12.448 5 12 5.448 12 6 C 12 6.552 12.448 7 13 7 L 27 7 C 27.552 7 28 6.552 28 6 C 28 5.448 27.552 5 27 5 L 13 5 Z"></path><path d="M 0 16 C 0 13.791 1.791 12 4 12 C 6.209 12 8 13.791 8 16 C 8 18.209 6.209 20 4 20 C 1.791 20 0 18.209 0 16 Z M 4 14 C 2.895 14 2 14.895 2 16 C 2 17.105 2.895 18 4 18 C 5.105 18 6 17.105 6 16 C 6 14.895 5.105 14 4 14 Z"></path><path d="M 13 13 C 12.448 13 12 13.448 12 14 C 12 14.552 12.448 15 13 15 L 23 15 C 23.552 15 24 14.552 24 14 C 24 13.448 23.552 13 23 13 L 13 13 Z"></path><path d="M 13 17 C 12.448 17 12 17.448 12 18 C 12 18.552 12.448 19 13 19 L 27 19 C 27.552 19 28 18.552 28 18 C 28 17.448 27.552 17 27 17 L 13 17 Z"></path></svg></span>
+                <span style="font:var(--fw-extrabold) 20px/24px var(--font-sans);color:var(--label-primary);">Tasks</span>
+              </div>
+              <button style="display:flex;align-items:center;gap:6px;background:transparent;border:none;cursor:pointer;color:var(--action);font:var(--fw-bold) 14px/1 var(--font-sans);padding:6px;">All Due Dates <svg width="12" height="12" viewBox="0 0 32 32" fill="currentColor"><path d="M 19.002 0 L 1.002 0 C 0.111 0 -0.335 1.077 0.295 1.707 L 9.295 10.707 C 9.685 11.098 10.319 11.098 10.709 10.707 L 19.709 1.707 C 20.339 1.077 19.893 0 19.002 0 Z" transform="translate(5.998 11)"></path></svg></button>
+              <button style="display:flex;align-items:center;gap:6px;background:transparent;border:none;cursor:pointer;color:var(--action);font:var(--fw-bold) 14px/1 var(--font-sans);padding:6px;">All Tasks <svg width="12" height="12" viewBox="0 0 32 32" fill="currentColor"><path d="M 19.002 0 L 1.002 0 C 0.111 0 -0.335 1.077 0.295 1.707 L 9.295 10.707 C 9.685 11.098 10.319 11.098 10.709 10.707 L 19.709 1.707 C 20.339 1.077 19.893 0 19.002 0 Z" transform="translate(5.998 11)"></path></svg></button>
+              <div style="display:flex;align-items:center;background:var(--kw-neutral-100);border:1px solid var(--outline);border-radius:8px;padding:4px;gap:4px;">
+                <button data-seg="my" style="border:none;cursor:pointer;border-radius:6px;padding:7px 16px;font:var(--fw-bold) 14px/1 var(--font-sans);background:#fff;color:var(--action);box-shadow:inset 0 0 0 1.5px var(--action);">My Tasks</button>
+                <button data-seg="team" style="border:none;cursor:pointer;border-radius:6px;padding:7px 16px;font:var(--fw-bold) 14px/1 var(--font-sans);background:transparent;color:var(--label-secondary);box-shadow:none;">Team Tasks</button>
+              </div>
+            </div>
+
+            <!-- table header -->
+            <div style="display:grid;grid-template-columns:1.7fr 1fr 1.3fr 1fr 0.8fr 92px;align-items:center;padding:9px 24px;border-bottom:1px solid var(--divider);background:var(--kw-neutral-100);">
+              <span style="font:var(--fw-bold) 12px/16px var(--font-sans);letter-spacing:1px;text-transform:uppercase;color:var(--label-tertiary);">Task</span>
+              <span style="font:var(--fw-bold) 12px/16px var(--font-sans);letter-spacing:1px;text-transform:uppercase;color:var(--label-tertiary);">Linked To</span>
+              <span style="font:var(--fw-bold) 12px/16px var(--font-sans);letter-spacing:1px;text-transform:uppercase;color:var(--label-tertiary);">Assigned To</span>
+              <span style="font:var(--fw-bold) 12px/16px var(--font-sans);letter-spacing:1px;text-transform:uppercase;color:var(--label-tertiary);">Priority</span>
+              <span style="font:var(--fw-bold) 12px/16px var(--font-sans);letter-spacing:1px;text-transform:uppercase;color:var(--action);">Due</span>
+              <span></span>
+            </div>
+
+            <!-- row 1 -->
+            <div data-task-row="" style="display:grid;grid-template-columns:1.7fr 1fr 1.3fr 1fr 0.8fr 92px;align-items:center;padding:16px 24px;border-bottom:1px solid var(--divider);">
+              <span data-task-name="" style="font:var(--fw-bold) 15px/20px var(--font-sans);color:var(--label-primary);">Build Your Contacts Databank</span>
+              <span></span>
+              <span style="display:flex;align-items:center;gap:10px;"><span style="width:32px;height:32px;flex:none;border-radius:50%;background:#5a6372;color:#fff;display:flex;align-items:center;justify-content:center;font:var(--fw-extrabold) 12px/1 var(--font-sans);">NR</span><span style="font:var(--fw-regular) 14px/18px var(--font-sans);color:var(--label-secondary);">Nina Royals</span></span>
+              <span><span style="display:inline-flex;align-items:center;gap:8px;background:#fff;box-shadow:inset 0 0 0 1px var(--outline);border-radius:999px;padding:5px 14px 5px 5px;"><span style="width:22px;height:22px;border-radius:50%;background:var(--kw-orange);display:flex;align-items:center;justify-content:center;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 14l7-7 7 7"></path></svg></span><span style="font:var(--fw-bold) 14px/1 var(--font-sans);color:var(--label-primary);">High</span></span></span>
+              <span style="line-height:1.2;"><span style="display:block;font:var(--fw-bold) 13px/16px var(--font-sans);color:var(--label-secondary);">02/09</span><span style="display:block;font:var(--fw-regular) 12px/16px var(--font-sans);color:var(--label-tertiary);">10:52</span></span>
+              <span style="display:flex;align-items:center;gap:4px;justify-content:flex-end;">
+                <button data-task-check="" title="Complete task" style="border:none;background:transparent;cursor:pointer;padding:2px;display:flex;color:var(--label-tertiary);"><svg width="24" height="24" viewBox="0 0 28 28" fill="currentColor"><path d="M 14 0 C 6.268 0 0 6.268 0 14 C 0 21.732 6.268 28 14 28 C 21.732 28 28 21.732 28 14 C 28 6.268 21.732 0 14 0 Z M 2 14 C 2 7.373 7.373 2 14 2 C 20.627 2 26 7.373 26 14 C 26 20.627 20.627 26 14 26 C 7.373 26 2 20.627 2 14 Z M 20.707 10.707 C 21.098 10.317 21.098 9.683 20.707 9.293 C 20.317 8.902 19.683 8.902 19.293 9.293 L 11.5 17.086 L 8.707 14.293 C 8.317 13.902 7.683 13.902 7.293 14.293 C 6.902 14.683 6.902 15.317 7.293 15.707 L 10.793 19.207 C 11.183 19.598 11.817 19.598 12.207 19.207 L 20.707 10.707 Z" fill-rule="evenodd"></path></svg></button>
+                <button title="More" style="border:none;background:transparent;cursor:pointer;padding:2px;display:flex;color:var(--label-tertiary);"><svg width="18" height="18" viewBox="0 0 32 32" fill="currentColor"><path d="M 3 6 C 1.343 6 0 4.657 0 3 C 0 1.343 1.343 0 3 0 C 4.657 0 6 1.343 6 3 C 6 4.657 4.657 6 3 6 Z" transform="translate(13 2)"></path><path d="M 0 14 C 0 15.657 1.343 17 3 17 C 4.657 17 6 15.657 6 14 C 6 12.343 4.657 11 3 11 C 1.343 11 0 12.343 0 14 Z" transform="translate(13 2)"></path><path d="M 0 25 C 0 26.657 1.343 28 3 28 C 4.657 28 6 26.657 6 25 C 6 23.343 4.657 22 3 22 C 1.343 22 0 23.343 0 25 Z" transform="translate(13 2)"></path></svg></button>
+              </span>
+            </div>
+
+            <!-- row 2 -->
+            <div data-task-row="" style="display:grid;grid-template-columns:1.7fr 1fr 1.3fr 1fr 0.8fr 92px;align-items:center;padding:16px 24px;border-bottom:1px solid var(--divider);">
+              <span data-task-name="" style="font:var(--fw-bold) 15px/20px var(--font-sans);color:var(--label-primary);">Connect Applications</span>
+              <span></span>
+              <span style="display:flex;align-items:center;gap:10px;"><span style="width:32px;height:32px;flex:none;border-radius:50%;background:#5a6372;color:#fff;display:flex;align-items:center;justify-content:center;font:var(--fw-extrabold) 12px/1 var(--font-sans);">NR</span><span style="font:var(--fw-regular) 14px/18px var(--font-sans);color:var(--label-secondary);">Nina Royals</span></span>
+              <span><span style="display:inline-flex;align-items:center;gap:8px;background:#fff;box-shadow:inset 0 0 0 1px var(--outline);border-radius:999px;padding:5px 14px 5px 5px;"><span style="width:22px;height:22px;border-radius:50%;background:var(--label-tertiary);display:flex;align-items:center;justify-content:center;"><span style="width:10px;height:2.5px;background:#fff;border-radius:2px;"></span></span><span style="font:var(--fw-bold) 14px/1 var(--font-sans);color:var(--label-primary);">Medium</span></span></span>
+              <span style="line-height:1.2;"><span style="display:block;font:var(--fw-bold) 13px/16px var(--font-sans);color:var(--label-secondary);">02/09</span><span style="display:block;font:var(--fw-regular) 12px/16px var(--font-sans);color:var(--label-tertiary);">10:54</span></span>
+              <span style="display:flex;align-items:center;gap:4px;justify-content:flex-end;">
+                <button data-task-check="" title="Complete task" style="border:none;background:transparent;cursor:pointer;padding:2px;display:flex;color:var(--label-tertiary);"><svg width="24" height="24" viewBox="0 0 28 28" fill="currentColor"><path d="M 14 0 C 6.268 0 0 6.268 0 14 C 0 21.732 6.268 28 14 28 C 21.732 28 28 21.732 28 14 C 28 6.268 21.732 0 14 0 Z M 2 14 C 2 7.373 7.373 2 14 2 C 20.627 2 26 7.373 26 14 C 26 20.627 20.627 26 14 26 C 7.373 26 2 20.627 2 14 Z M 20.707 10.707 C 21.098 10.317 21.098 9.683 20.707 9.293 C 20.317 8.902 19.683 8.902 19.293 9.293 L 11.5 17.086 L 8.707 14.293 C 8.317 13.902 7.683 13.902 7.293 14.293 C 6.902 14.683 6.902 15.317 7.293 15.707 L 10.793 19.207 C 11.183 19.598 11.817 19.598 12.207 19.207 L 20.707 10.707 Z" fill-rule="evenodd"></path></svg></button>
+                <button title="More" style="border:none;background:transparent;cursor:pointer;padding:2px;display:flex;color:var(--label-tertiary);"><svg width="18" height="18" viewBox="0 0 32 32" fill="currentColor"><path d="M 3 6 C 1.343 6 0 4.657 0 3 C 0 1.343 1.343 0 3 0 C 4.657 0 6 1.343 6 3 C 6 4.657 4.657 6 3 6 Z" transform="translate(13 2)"></path><path d="M 0 14 C 0 15.657 1.343 17 3 17 C 4.657 17 6 15.657 6 14 C 6 12.343 4.657 11 3 11 C 1.343 11 0 12.343 0 14 Z" transform="translate(13 2)"></path><path d="M 0 25 C 0 26.657 1.343 28 3 28 C 4.657 28 6 26.657 6 25 C 6 23.343 4.657 22 3 22 C 1.343 22 0 23.343 0 25 Z" transform="translate(13 2)"></path></svg></button>
+              </span>
+            </div>
+
+            <!-- row 3 -->
+            <div data-task-row="" style="display:grid;grid-template-columns:1.7fr 1fr 1.3fr 1fr 0.8fr 92px;align-items:center;padding:16px 24px;border-bottom:1px solid var(--divider);">
+              <span data-task-name="" style="font:var(--fw-bold) 15px/20px var(--font-sans);color:var(--label-primary);">Launch Agent Site</span>
+              <span></span>
+              <span style="display:flex;align-items:center;gap:10px;"><span style="width:32px;height:32px;flex:none;border-radius:50%;background:#5a6372;color:#fff;display:flex;align-items:center;justify-content:center;font:var(--fw-extrabold) 12px/1 var(--font-sans);">NR</span><span style="font:var(--fw-regular) 14px/18px var(--font-sans);color:var(--label-secondary);">Nina Royals</span></span>
+              <span><span style="display:inline-flex;align-items:center;gap:8px;background:#fff;box-shadow:inset 0 0 0 1px var(--outline);border-radius:999px;padding:5px 14px 5px 5px;"><span style="width:22px;height:22px;border-radius:50%;background:var(--label-tertiary);display:flex;align-items:center;justify-content:center;"><span style="width:10px;height:2.5px;background:#fff;border-radius:2px;"></span></span><span style="font:var(--fw-bold) 14px/1 var(--font-sans);color:var(--label-primary);">Medium</span></span></span>
+              <span style="line-height:1.2;"><span style="display:block;font:var(--fw-bold) 13px/16px var(--font-sans);color:var(--label-secondary);">02/09</span><span style="display:block;font:var(--fw-regular) 12px/16px var(--font-sans);color:var(--label-tertiary);">10:55</span></span>
+              <span style="display:flex;align-items:center;gap:4px;justify-content:flex-end;">
+                <button data-task-check="" title="Complete task" style="border:none;background:transparent;cursor:pointer;padding:2px;display:flex;color:var(--label-tertiary);"><svg width="24" height="24" viewBox="0 0 28 28" fill="currentColor"><path d="M 14 0 C 6.268 0 0 6.268 0 14 C 0 21.732 6.268 28 14 28 C 21.732 28 28 21.732 28 14 C 28 6.268 21.732 0 14 0 Z M 2 14 C 2 7.373 7.373 2 14 2 C 20.627 2 26 7.373 26 14 C 26 20.627 20.627 26 14 26 C 7.373 26 2 20.627 2 14 Z M 20.707 10.707 C 21.098 10.317 21.098 9.683 20.707 9.293 C 20.317 8.902 19.683 8.902 19.293 9.293 L 11.5 17.086 L 8.707 14.293 C 8.317 13.902 7.683 13.902 7.293 14.293 C 6.902 14.683 6.902 15.317 7.293 15.707 L 10.793 19.207 C 11.183 19.598 11.817 19.598 12.207 19.207 L 20.707 10.707 Z" fill-rule="evenodd"></path></svg></button>
+                <button title="More" style="border:none;background:transparent;cursor:pointer;padding:2px;display:flex;color:var(--label-tertiary);"><svg width="18" height="18" viewBox="0 0 32 32" fill="currentColor"><path d="M 3 6 C 1.343 6 0 4.657 0 3 C 0 1.343 1.343 0 3 0 C 4.657 0 6 1.343 6 3 C 6 4.657 4.657 6 3 6 Z" transform="translate(13 2)"></path><path d="M 0 14 C 0 15.657 1.343 17 3 17 C 4.657 17 6 15.657 6 14 C 6 12.343 4.657 11 3 11 C 1.343 11 0 12.343 0 14 Z" transform="translate(13 2)"></path><path d="M 0 25 C 0 26.657 1.343 28 3 28 C 4.657 28 6 26.657 6 25 C 6 23.343 4.657 22 3 22 C 1.343 22 0 23.343 0 25 Z" transform="translate(13 2)"></path></svg></button>
+              </span>
+            </div>
+
+            <!-- footer -->
+            <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 24px;">
+              <button style="display:flex;align-items:center;gap:9px;background:transparent;border:none;cursor:pointer;color:var(--action);font:var(--fw-bold) 15px/1 var(--font-sans);padding:4px;">
+                <svg width="22" height="22" viewBox="0 0 28 28" fill="currentColor"><path d="M 0 14 C 0 6.268 6.268 0 14 0 C 21.732 0 28 6.268 28 14 C 28 21.732 21.732 28 14 28 C 6.268 28 0 21.732 0 14 Z M 14 2 C 7.373 2 2 7.373 2 14 C 2 20.627 7.373 26 14 26 C 20.627 26 26 20.627 26 14 C 26 7.373 20.627 2 14 2 Z M 14 6 C 14.552 6 15 6.448 15 7 L 15 13 L 21 13 C 21.552 13 22 13.448 22 14 C 22 14.552 21.552 15 21 15 L 15 15 L 15 21 C 15 21.552 14.552 22 14 22 C 13.448 22 13 21.552 13 21 L 13 15 L 7 15 C 6.448 15 6 14.552 6 14 C 6 13.448 6.448 13 7 13 L 13 13 L 13 7 C 13 6.448 13.448 6 14 6 Z" fill-rule="evenodd"></path></svg>
+                Create Task
+              </button>
+              <div style="display:flex;align-items:center;gap:14px;">
+                <button title="Previous" style="width:34px;height:34px;border-radius:6px;border:none;background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--label-tertiary);" style-hover="background:var(--kw-neutral-100);"><svg width="20" height="20" viewBox="0 0 32 32" fill="currentColor"><path d="M 9.293 0.293 C 9.683 -0.098 10.317 -0.098 10.707 0.293 C 11.098 0.683 11.098 1.317 10.707 1.707 L 3.414 9 L 27 9 C 27.552 9 28 9.448 28 10 C 28 10.552 27.552 11 27 11 L 3.414 11 L 10.707 18.293 C 11.098 18.683 11.098 19.317 10.707 19.707 C 10.317 20.098 9.683 20.098 9.293 19.707 L 0.293 10.707 C -0.098 10.317 -0.098 9.683 0.293 9.293 L 9.293 0.293 Z" fill-rule="evenodd" transform="translate(2 6)"></path></svg></button>
+                <span style="font:var(--fw-regular) 14px/1 var(--font-sans);color:var(--label-secondary);"><span style="font:var(--fw-extrabold) 14px/1 var(--font-sans);color:var(--action);">1-50</span> of 438</span>
+                <button title="Next" style="width:34px;height:34px;border-radius:6px;border:none;background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--action);" style-hover="background:var(--action-hover-fill);"><svg width="20" height="20" viewBox="0 0 32 32" fill="currentColor"><path d="M 18.707 0.293 C 18.317 -0.098 17.683 -0.098 17.293 0.293 C 16.902 0.683 16.902 1.317 17.293 1.707 L 24.586 9 L 1 9 C 0.448 9 0 9.448 0 10 C 0 10.552 0.448 11 1 11 L 24.586 11 L 17.293 18.293 C 16.902 18.683 16.902 19.317 17.293 19.707 C 17.683 20.098 18.317 20.098 18.707 19.707 L 27.707 10.707 C 28.098 10.317 28.098 9.683 27.707 9.293 L 18.707 0.293 Z" fill-rule="evenodd" transform="translate(2 6)"></path></svg></button>
+              </div>
+            </div>
+          </div>
+
+          <!-- GOALS CARD -->
+          <div style="background:#fff;border-radius:4px;box-shadow:var(--shadow04);overflow:hidden;">
+            <div style="display:flex;align-items:center;gap:12px;padding:18px 24px;border-bottom:1px solid var(--divider);">
+              <span style="color:var(--action);display:flex;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4h10v4.5a5 5 0 0 1-10 0V4z"></path><path d="M7 5.5H4.5v1A3 3 0 0 0 7.5 9.5"></path><path d="M17 5.5h2.5v1a3 3 0 0 1-3 3"></path><path d="M12 13.5v3"></path><path d="M8.5 20h7"></path><path d="M9.5 17h5v3h-5z"></path></svg></span>
+              <span style="font:var(--fw-extrabold) 20px/24px var(--font-sans);color:var(--label-primary);margin-right:auto;">Goals</span>
+              <button style="display:flex;align-items:center;gap:6px;background:transparent;border:none;cursor:pointer;color:var(--action);font:var(--fw-bold) 14px/1 var(--font-sans);padding:6px;">Year to Date <svg width="12" height="12" viewBox="0 0 32 32" fill="currentColor"><path d="M 19.002 0 L 1.002 0 C 0.111 0 -0.335 1.077 0.295 1.707 L 9.295 10.707 C 9.685 11.098 10.319 11.098 10.709 10.707 L 19.709 1.707 C 20.339 1.077 19.893 0 19.002 0 Z" transform="translate(5.998 11)"></path></svg></button>
+            </div>
+            <div style="padding:20px 24px 28px;">
+              <div style="display:flex;align-items:center;gap:8px;margin-bottom:24px;">
+                <span style="width:9px;height:9px;border-radius:50%;background:var(--action);"></span>
+                <span style="font:var(--fw-bold) 14px/18px var(--font-sans);color:var(--label-secondary);">Lead Generation</span>
+              </div>
+              <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:12px;">
+                <div style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:12px;">
+                  <span><span style="display:block;font:var(--fw-extrabold) 15px/20px var(--font-sans);color:var(--label-primary);">Leads</span><span style="display:block;font:var(--fw-regular) 13px/16px var(--font-sans);color:var(--label-tertiary);margin-top:2px;">0 YTD</span></span>
+                  <svg width="86" height="86" viewBox="0 0 86 86"><circle cx="43" cy="43" r="36" fill="none" stroke="var(--kw-neutral-200)" stroke-width="9"></circle></svg>
+                </div>
+                <div style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:12px;">
+                  <span><span style="display:block;font:var(--fw-extrabold) 15px/20px var(--font-sans);color:var(--label-primary);">Appointments</span><span style="display:block;font:var(--fw-regular) 13px/16px var(--font-sans);color:var(--label-tertiary);margin-top:2px;">0 YTD</span></span>
+                  <svg width="86" height="86" viewBox="0 0 86 86"><circle cx="43" cy="43" r="36" fill="none" stroke="var(--kw-neutral-200)" stroke-width="9"></circle></svg>
+                </div>
+                <div style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:12px;">
+                  <span><span style="display:block;font:var(--fw-extrabold) 15px/20px var(--font-sans);color:var(--label-primary);">Under Contract</span><span style="display:block;font:var(--fw-regular) 13px/16px var(--font-sans);color:var(--label-tertiary);margin-top:2px;">0 YTD</span></span>
+                  <svg width="86" height="86" viewBox="0 0 86 86"><circle cx="43" cy="43" r="36" fill="none" stroke="var(--kw-neutral-200)" stroke-width="9"></circle></svg>
+                </div>
+                <div style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:12px;">
+                  <span><span style="display:block;font:var(--fw-extrabold) 15px/20px var(--font-sans);color:var(--label-primary);">Closed Units</span><span style="display:block;font:var(--fw-regular) 13px/16px var(--font-sans);color:var(--label-tertiary);margin-top:2px;">0 YTD</span></span>
+                  <svg width="86" height="86" viewBox="0 0 86 86"><circle cx="43" cy="43" r="36" fill="none" stroke="var(--kw-neutral-200)" stroke-width="9"></circle></svg>
+                </div>
+                <div style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px;">
+                  <span><span style="display:block;font:var(--fw-extrabold) 15px/20px var(--font-sans);color:var(--label-primary);">GCI Goal Breakdown</span><span style="display:block;font:var(--fw-regular) 13px/16px var(--font-sans);color:var(--label-tertiary);margin-top:2px;">$0 YTD</span></span>
+                  <span style="font:italic var(--fw-regular) 13px/18px var(--font-sans);color:var(--label-tertiary);margin-top:18px;">(based on opportunities)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT -->
+        <div style="display:flex;flex-direction:column;gap:24px;min-width:0;">
+
+          <!-- MARKET CENTER -->
+          <div style="background:#fff;border-radius:4px;box-shadow:var(--shadow04);overflow:hidden;">
+            <div style="display:flex;align-items:center;gap:11px;padding:16px 18px;">
+              <span style="color:var(--action);display:flex;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="16.5" rx="2.5"></rect><path d="M3 9.5h18"></path><path d="M8 2.5v4"></path><path d="M16 2.5v4"></path></svg></span>
+              <span style="font:var(--fw-extrabold) 18px/22px var(--font-sans);color:var(--label-primary);margin-right:auto;">Demo Market Center</span>
+              <button style="display:flex;align-items:center;gap:6px;background:transparent;border:none;cursor:pointer;color:var(--action);font:var(--fw-bold) 14px/1 var(--font-sans);padding:4px;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4L18.5 9.5l-4-4L4 16v4z"></path><path d="M13.5 6.5l4 4"></path></svg>Edit</button>
+            </div>
+            <div style="position:relative;margin:0 16px;">
+              <div style="height:172px;border-radius:8px;background:linear-gradient(135deg,#cdb89f,#a98f76);display:flex;align-items:center;justify-content:center;overflow:hidden;">
+                <span style="font:var(--fw-extrabold) 40px/1 var(--font-sans);color:rgba(255,255,255,.75);letter-spacing:3px;">NYIMAK</span>
+              </div>
+              <button style="position:absolute;left:8px;top:50%;transform:translateY(-50%);width:34px;height:34px;border-radius:50%;border:none;background:rgba(255,255,255,.92);box-shadow:var(--shadow12);cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--action);"><svg width="20" height="20" viewBox="0 0 32 32" fill="currentColor"><path d="M 19 4 L 9 14 L 19 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+              <button style="position:absolute;right:8px;top:50%;transform:translateY(-50%);width:34px;height:34px;border-radius:50%;border:none;background:rgba(255,255,255,.92);box-shadow:var(--shadow12);cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--action);"><svg width="20" height="20" viewBox="0 0 32 32" fill="currentColor"><path d="M 13 4 L 23 14 L 13 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+            </div>
+            <div style="padding:14px 18px 18px;">
+              <span style="display:block;font:var(--fw-extrabold) 17px/22px var(--font-sans);color:var(--label-primary);">sell something</span>
+              <span style="display:block;margin-top:3px;font:var(--fw-regular) 14px/18px var(--font-sans);color:var(--label-tertiary);">Sponsored by <span style="color:var(--action);font-weight:700;cursor:pointer;">Joseph Smith</span></span>
+            </div>
+          </div>
+
+          <!-- PREFERRED PARTNERS -->
+          <div style="background:#fff;border-radius:4px;box-shadow:var(--shadow04);display:flex;align-items:center;gap:12px;padding:18px 18px;">
+            <span style="color:var(--action);display:flex;"><svg width="24" height="18" viewBox="0 0 28 20" fill="currentColor"><path d="M 14 0 C 13.735 0 13.48 0.105 13.293 0.293 L 11.586 2 L 8 2 C 7.735 2 7.48 2.105 7.293 2.293 L 4.586 5 L 3 5 C 1.343 5 0 6.343 0 8 L 0 15 C 0 16.657 1.343 18 3 18 L 4.792 18 C 4.938 18.062 5.129 18.143 5.365 18.239 C 5.838 18.431 6.495 18.687 7.234 18.944 C 8.668 19.443 10.563 20 12 20 C 13.64 20 15.266 19.09 16.612 18.061 C 17.052 17.726 17.478 17.364 17.885 16.993 C 17.923 16.998 17.961 17 18 17 L 20 17 C 20.952 17 21.85 16.689 22.469 16.414 C 22.787 16.272 23.051 16.131 23.281 16 L 25 16 C 26.657 16 28 14.657 28 13 L 28 6 C 28 4.343 26.657 3 25 3 L 23.414 3 L 20.707 0.293 C 20.52 0.105 20.265 0 20 0 L 14 0 Z M 19.847 15 L 20 15 C 20.548 15 21.15 14.811 21.656 14.586 C 22.105 14.369 22.404 14.194 22.446 14.168 C 22.61 14.058 22.803 14 23 14 L 25 14 C 25.552 14 26 13.552 26 13 L 26 6 C 26 5.448 25.552 5 25 5 L 23 5 C 22.735 5 22.48 4.895 22.293 4.707 L 19.586 2 L 14.414 2 L 12.706 3.708 L 10.624 5.791 C 9.997 6.509 10.025 7.602 10.71 8.287 C 11.425 9.001 12.583 9.001 13.298 8.287 L 15.293 6.293 C 15.684 5.902 16.317 5.902 16.707 6.293 L 19.91 9.496 C 21.281 10.867 21.506 13.095 20.167 14.637 C 20.064 14.755 19.958 14.876 19.847 15 Z M 5.406 16.086 C 5.278 16.029 5.14 16 5 16 L 3 16 C 2.448 16 2 15.552 2 15 L 2 8 C 2 7.448 2.448 7 3 7 L 5 7 C 5.265 7 5.52 6.895 5.707 6.707 L 8.414 4 L 9.581 4 L 9.157 4.432 C 7.802 5.959 7.855 8.26 9.296 9.701 C 10.792 11.197 13.216 11.197 14.712 9.701 L 16 8.414 L 18.496 10.91 C 19.199 11.613 19.241 12.653 18.657 13.325 C 17.779 14.336 16.626 15.534 15.398 16.472 C 14.137 17.435 12.957 18 12 18 C 10.937 18 9.332 17.557 7.891 17.056 C 7.193 16.813 6.569 16.569 6.119 16.386 C 5.895 16.295 5.714 16.219 5.591 16.166 L 5.406 16.086 Z" fill-rule="evenodd"></path></svg></span>
+            <span style="font:var(--fw-extrabold) 17px/22px var(--font-sans);color:var(--label-primary);margin-right:auto;">Explore Preferred Partners</span>
+            <button title="Open" style="border:none;background:transparent;cursor:pointer;display:flex;color:var(--action);padding:4px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"></path><path d="M8 7h9v9"></path></svg></button>
+            <button style="display:flex;align-items:center;gap:6px;background:transparent;border:none;cursor:pointer;color:var(--action);font:var(--fw-bold) 14px/1 var(--font-sans);padding:4px;border-left:1px solid var(--divider);padding-left:14px;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4L18.5 9.5l-4-4L4 16v4z"></path><path d="M13.5 6.5l4 4"></path></svg>Edit</button>
+          </div>
+
+          <!-- RECENT LEADS -->
+          <div style="background:#fff;border-radius:4px;box-shadow:var(--shadow04);overflow:hidden;">
+            <div style="display:flex;align-items:center;gap:11px;padding:16px 18px;border-bottom:1px solid var(--divider);">
+              <span style="width:28px;height:28px;flex:none;border-radius:50%;border:2px solid var(--action);color:var(--action);display:flex;align-items:center;justify-content:center;font:var(--fw-extrabold) 13px/1 var(--font-sans);">L</span>
+              <span style="font:var(--fw-extrabold) 18px/22px var(--font-sans);color:var(--label-primary);">Recent Leads</span>
+            </div>
+            <div data-lead-row="" style="display:grid;grid-template-columns:auto 1fr auto auto;align-items:center;gap:14px;padding:14px 18px;border-bottom:1px solid var(--divider);">
+              <button data-lead-check="" style="width:20px;height:20px;flex:none;border-radius:4px;border:1.5px solid var(--label-tertiary);background:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;"></button>
+              <span style="min-width:0;"><span style="display:block;font:var(--fw-bold) 15px/20px var(--font-sans);color:var(--label-primary);">Carter Dean</span><span style="display:block;font:var(--fw-regular) 13px/16px var(--font-sans);color:var(--label-tertiary);">Facebook Ad Lead</span></span>
+              <span style="background:var(--kw-neutral-200);color:var(--label-secondary);font:var(--fw-bold) 12px/1 var(--font-sans);padding:6px 12px;border-radius:999px;white-space:nowrap;">5 Days ago</span>
+              <button title="More" style="border:none;background:transparent;cursor:pointer;padding:2px;display:flex;color:var(--label-tertiary);"><svg width="18" height="18" viewBox="0 0 32 32" fill="currentColor"><path d="M 3 6 C 1.343 6 0 4.657 0 3 C 0 1.343 1.343 0 3 0 C 4.657 0 6 1.343 6 3 C 6 4.657 4.657 6 3 6 Z" transform="translate(13 2)"></path><path d="M 0 14 C 0 15.657 1.343 17 3 17 C 4.657 17 6 15.657 6 14 C 6 12.343 4.657 11 3 11 C 1.343 11 0 12.343 0 14 Z" transform="translate(13 2)"></path><path d="M 0 25 C 0 26.657 1.343 28 3 28 C 4.657 28 6 26.657 6 25 C 6 23.343 4.657 22 3 22 C 1.343 22 0 23.343 0 25 Z" transform="translate(13 2)"></path></svg></button>
+            </div>
+            <div data-lead-row="" style="display:grid;grid-template-columns:auto 1fr auto auto;align-items:center;gap:14px;padding:14px 18px;border-bottom:1px solid var(--divider);">
+              <button data-lead-check="" style="width:20px;height:20px;flex:none;border-radius:4px;border:1.5px solid var(--label-tertiary);background:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;"></button>
+              <span style="min-width:0;"><span style="display:block;font:var(--fw-bold) 15px/20px var(--font-sans);color:var(--label-primary);">Alexis Nichols</span><span style="display:block;font:var(--fw-regular) 13px/16px var(--font-sans);color:var(--label-tertiary);">Facebook Ad Lead</span></span>
+              <span style="background:var(--kw-neutral-200);color:var(--label-secondary);font:var(--fw-bold) 12px/1 var(--font-sans);padding:6px 12px;border-radius:999px;white-space:nowrap;">5 Days ago</span>
+              <button title="More" style="border:none;background:transparent;cursor:pointer;padding:2px;display:flex;color:var(--label-tertiary);"><svg width="18" height="18" viewBox="0 0 32 32" fill="currentColor"><path d="M 3 6 C 1.343 6 0 4.657 0 3 C 0 1.343 1.343 0 3 0 C 4.657 0 6 1.343 6 3 C 6 4.657 4.657 6 3 6 Z" transform="translate(13 2)"></path><path d="M 0 14 C 0 15.657 1.343 17 3 17 C 4.657 17 6 15.657 6 14 C 6 12.343 4.657 11 3 11 C 1.343 11 0 12.343 0 14 Z" transform="translate(13 2)"></path><path d="M 0 25 C 0 26.657 1.343 28 3 28 C 4.657 28 6 26.657 6 25 C 6 23.343 4.657 22 3 22 C 1.343 22 0 23.343 0 25 Z" transform="translate(13 2)"></path></svg></button>
+            </div>
+            <div data-lead-row="" style="display:grid;grid-template-columns:auto 1fr auto auto;align-items:center;gap:14px;padding:14px 18px;">
+              <button data-lead-check="" style="width:20px;height:20px;flex:none;border-radius:4px;border:1.5px solid var(--label-tertiary);background:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;"></button>
+              <span style="min-width:0;"><span style="display:block;font:var(--fw-bold) 15px/20px var(--font-sans);color:var(--label-primary);">Joanne Rice</span><span style="display:block;font:var(--fw-regular) 13px/16px var(--font-sans);color:var(--label-tertiary);">Facebook Ad Lead</span></span>
+              <span style="background:var(--kw-neutral-200);color:var(--label-secondary);font:var(--fw-bold) 12px/1 var(--font-sans);padding:6px 12px;border-radius:999px;white-space:nowrap;">6 Days ago</span>
+              <button title="More" style="border:none;background:transparent;cursor:pointer;padding:2px;display:flex;color:var(--label-tertiary);"><svg width="18" height="18" viewBox="0 0 32 32" fill="currentColor"><path d="M 3 6 C 1.343 6 0 4.657 0 3 C 0 1.343 1.343 0 3 0 C 4.657 0 6 1.343 6 3 C 6 4.657 4.657 6 3 6 Z" transform="translate(13 2)"></path><path d="M 0 14 C 0 15.657 1.343 17 3 17 C 4.657 17 6 15.657 6 14 C 6 12.343 4.657 11 3 11 C 1.343 11 0 12.343 0 14 Z" transform="translate(13 2)"></path><path d="M 0 25 C 0 26.657 1.343 28 3 28 C 4.657 28 6 26.657 6 25 C 6 23.343 4.657 22 3 22 C 1.343 22 0 23.343 0 25 Z" transform="translate(13 2)"></path></svg></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- ===================== KWIQ COPILOT DRAWER ===================== -->
+  <div data-kwiq-overlay="" style="position:fixed;inset:0;background:var(--overlay-darken);opacity:0;pointer-events:none;transition:opacity .28s ease;z-index:90;"></div>
+  <aside data-kwiq-drawer="" data-history-closed="" role="dialog" aria-modal="true" aria-label="AI Assistant" style="position:fixed;top:64px;left:64px;right:0;bottom:64px;margin:0 auto;height:auto;background:var(--page-background);border-radius:8px;box-shadow:var(--shadow32);z-index:95;transform:translateY(14px);opacity:0;pointer-events:none;transition:transform .32s cubic-bezier(.4,0,.2,1),opacity .26s ease,width .24s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;overflow:hidden;">
+
+    <div style="flex:none;display:flex;align-items:center;justify-content:space-between;height:64px;padding:0 16px 0 24px;background:var(--container-background);border-bottom:1px solid var(--divider);">
+      <span style="font:var(--fw-extrabold) 24px/32px var(--font-sans);color:var(--label-primary);">AI Assistant</span>
+      <button data-kwiq-close="" title="Close" aria-label="Close" style="width:40px;height:40px;display:flex;align-items:center;justify-content:center;background:transparent;border:none;cursor:pointer;border-radius:8px;color:var(--label-primary);" style-hover="background:var(--kw-neutral-100);">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 5l14 14M19 5L5 19"></path></svg>
+      </button>
+    </div>
+
+    <div data-kwiq-body="" style="flex:1;min-height:0;display:flex;">
+      <nav data-kwiq-history="" aria-label="Recent chats" style="flex:none;width:320px;overflow:hidden;background:var(--container-background);border-right:1px solid var(--divider);">
+        <div style="width:320px;height:100%;overflow-y:auto;padding:24px 16px 24px 16px;">
+          <div style="display:flex;align-items:center;justify-content:space-between;">
+            <span style="font:var(--fw-bold) 16px/24px var(--font-sans);color:var(--label-primary);">Recent Chats</span>
+            <button data-kwiq-hist-edit="" style="background:transparent;border:none;cursor:pointer;padding:4px 0;font:var(--fw-bold) 14px/20px var(--font-sans);color:var(--action);">Edit</button>
+          </div>
+        <div data-kwiq-hist-group="today" style="margin-top:24px;">
+          <div style="padding:0 0 8px;font:var(--fw-bold) 11px/16px var(--font-sans);letter-spacing:.08em;text-transform:uppercase;color:var(--label-secondary);">Today</div>
+          <div data-kwiq-hist-list="" style="display:flex;flex-direction:column;gap:2px;">
+          <button data-kwiq-hist-item=""><span>Priority leads for today</span><span data-kwiq-hist-del="" title="Delete chat" aria-label="Delete chat"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M10 11v6M14 11v6M6 7l1 12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2l1-12M9 7V4h6v3"></path></svg></span></button>
+          <button data-kwiq-hist-item=""><span>Summarize Oak St deal</span><span data-kwiq-hist-del="" title="Delete chat" aria-label="Delete chat"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M10 11v6M14 11v6M6 7l1 12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2l1-12M9 7V4h6v3"></path></svg></span></button>
+          </div>
+        </div>
+        <div data-kwiq-hist-group="yesterday" style="margin-top:24px;">
+          <div style="padding:0 0 8px;font:var(--fw-bold) 11px/16px var(--font-sans);letter-spacing:.08em;text-transform:uppercase;color:var(--label-secondary);">Yesterday</div>
+          <div data-kwiq-hist-list="" style="display:flex;flex-direction:column;gap:2px;">
+          <button data-kwiq-hist-item=""><span>Draft offer for the Parks</span><span data-kwiq-hist-del="" title="Delete chat" aria-label="Delete chat"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M10 11v6M14 11v6M6 7l1 12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2l1-12M9 7V4h6v3"></path></svg></span></button>
+          <button data-kwiq-hist-item=""><span>Follow-up email for Chen</span><span data-kwiq-hist-del="" title="Delete chat" aria-label="Delete chat"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M10 11v6M14 11v6M6 7l1 12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2l1-12M9 7V4h6v3"></path></svg></span></button>
+          <button data-kwiq-hist-item=""><span>Pipeline review September</span><span data-kwiq-hist-del="" title="Delete chat" aria-label="Delete chat"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M10 11v6M14 11v6M6 7l1 12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2l1-12M9 7V4h6v3"></path></svg></span></button>
+          </div>
+        </div>
+        </div>
+      </nav>
+      <div data-kwiq-main="" style="flex:1;min-width:0;display:flex;flex-direction:column;position:relative;">
+        <div data-kwiq-chat-head=""><span data-kwiq-chat-title="">New chat</span><button type="button" data-kwiq-newchat="" title="New Chat" style="margin-left:auto;flex:none;height:40px;display:flex;align-items:center;gap:8px;padding:0 16px 0 12px;background:var(--container-background);border:none;border-radius:4px;box-shadow:var(--shadow04);cursor:pointer;color:var(--label-primary);font:var(--fw-bold) 14px/20px var(--font-sans);"><img src="assets/ActionCompose.svg" width="20" height="20" alt="" aria-hidden="true" style="display:block;flex:none;"><span>New Chat</span></button></div>
+        <div style="position:absolute;top:16px;left:16px;z-index:2;">
+          <button data-kwiq-hist-toggle="" title="Show chat history" aria-label="Show chat history" aria-expanded="false" style="width:40px;height:40px;display:flex;align-items:center;justify-content:center;background:var(--container-background);border:1px solid var(--divider);border-radius:8px;cursor:pointer;color:var(--label-primary);">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="15" rx="2.5"></rect><path d="M10 4.5v15"></path><path d="M5.5 8.5h2M5.5 11.5h2M5.5 14.5h2"></path></svg>
+          </button>
+        </div>
+    <div data-kwiq-messages="" style="flex:1;min-height:0;overflow-y:auto;padding:16px 24px 32px;display:flex;flex-direction:column;gap:14px;width:100%;max-width:840px;margin:0 auto;">
+      <div data-kwiq-empty="" style="flex:1;width:100%;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:0;padding:8px 6px 4px;max-width:760px;margin:0 auto;">
+        <span data-kwiq-eyebrow="" aria-hidden="true" style="display:flex;color:var(--action);margin-bottom:16px;"><svg aria-hidden="true" width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22 6C22 4.89543 21.1046 4 20 4C18.8954 4 18 4.89543 18 6C18 12.6274 12.6274 18 6 18C4.89543 18 4 18.8954 4 20C4 21.1046 4.89543 22 6 22C12.6274 22 18 27.3726 18 34C18 35.1046 18.8954 36 20 36C21.1046 36 22 35.1046 22 34C22 27.3726 27.3726 22 34 22C35.1046 22 36 21.1046 36 20C36 18.8954 35.1046 18 34 18C27.3726 18 22 12.6274 22 6Z" fill="url(#kwiqSparkleGrad)"/><path d="M50 18C50 16.8954 49.1046 16 48 16C46.8954 16 46 16.8954 46 18C46 20.6976 45.1861 22.6454 43.9157 23.9157C42.6454 25.1861 40.6976 26 38 26C36.8954 26 36 26.8954 36 28C36 29.1046 36.8954 30 38 30C40.6976 30 42.6454 30.8139 43.9157 32.0843C45.1861 33.3546 46 35.3024 46 38C46 39.1046 46.8954 40 48 40C49.1046 40 50 39.1046 50 38C50 35.3024 50.8139 33.3546 52.0843 32.0843C53.3546 30.8139 55.3024 30 58 30C59.1046 30 60 29.1046 60 28C60 26.8954 59.1046 26 58 26C55.3024 26 53.3546 25.1861 52.0843 23.9157C50.8139 22.6454 50 20.6976 50 18Z" fill="url(#kwiqSparkleGrad)"/><path d="M34 38C34 36.8954 33.1046 36 32 36C30.8954 36 30 36.8954 30 38C30 40.6976 29.1861 42.6454 27.9157 43.9157C26.6454 45.1861 24.6976 46 22 46C20.8954 46 20 46.8954 20 48C20 49.1046 20.8954 50 22 50C24.6976 50 26.6454 50.8139 27.9157 52.0843C29.1861 53.3546 30 55.3024 30 58C30 59.1046 30.8954 60 32 60C33.1046 60 34 59.1046 34 58C34 55.3024 34.8139 53.3546 36.0843 52.0843C37.3546 50.8139 39.3024 50 42 50C43.1046 50 44 49.1046 44 48C44 46.8954 43.1046 46 42 46C39.3024 46 37.3546 45.1861 36.0843 43.9157C34.8139 42.6454 34 40.6976 34 38Z" fill="url(#kwiqSparkleGrad)"/><defs><linearGradient id="kwiqSparkleGrad" x1="4" y1="24" x2="60" y2="34" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#6730B4"></stop><stop offset=".5" stop-color="#1273C9"></stop><stop offset="1" stop-color="#017C98"></stop></linearGradient></defs></svg></span>
+        <span data-kwiq-hello="" style="font:var(--fw-extrabold) 32px/40px var(--font-sans);color:var(--label-primary);">Let’s get to work, Nina</span>
+        <span data-kwiq-sub="" style="font:var(--fw-regular) 16px/24px var(--font-sans);color:var(--label-secondary);margin-top:8px;white-space:nowrap;">Ask about your contacts, your day, or your numbers.</span>
+        <div data-kwiq-composer-slot="" style="width:100%;margin-top:32px;margin-bottom:24px;"></div>
+        <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:10px;width:100%;max-width:560px;">
+          <button data-kwiq-prompt="" style="display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--divider);border-radius:999px;padding:9px 15px;cursor:pointer;font:var(--fw-bold) 13.5px/18px var(--font-sans);color:var(--label-secondary);">
+            Who should I call today?
+          </button>
+          <button data-kwiq-prompt="" style="display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--divider);border-radius:999px;padding:9px 15px;cursor:pointer;font:var(--fw-bold) 13.5px/18px var(--font-sans);color:var(--label-secondary);">
+            Plan my day
+          </button>
+          <button data-kwiq-prompt="" style="display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--divider);border-radius:999px;padding:9px 15px;cursor:pointer;font:var(--fw-bold) 13.5px/18px var(--font-sans);color:var(--label-secondary);">
+            Draft a follow-up to email
+          </button>
+          <button data-kwiq-prompt="" style="display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--divider);border-radius:999px;padding:9px 15px;cursor:pointer;font:var(--fw-bold) 13.5px/18px var(--font-sans);color:var(--label-secondary);">
+            Find contacts to call today
+          </button>
+          <button data-kwiq-prompt="" style="display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--divider);border-radius:999px;padding:9px 15px;cursor:pointer;font:var(--fw-bold) 13.5px/18px var(--font-sans);color:var(--label-secondary);">
+            Summarize my pipeline
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div data-kwiq-composer="" style="flex:none;padding:8px 24px 24px;background:transparent;width:100%;max-width:760px;margin:0 auto;">
+      <div data-kwiq-cbox="" style="border-radius:16px;">
+        <div style="padding:16px 18px 12px;">
+          <div style="position:relative;">
+            <input data-kwiq-input="" placeholder="Tell me what you need…" style="width:100%;border:none;outline:none;background:transparent;font:var(--fw-regular) 16px/24px var(--font-sans);color:var(--label-primary);">
+            <span data-kwiq-ph="" aria-hidden="true"><span data-kwiq-ph-text="">Draft a follow-up for the buyers I showed homes to Saturday</span></span>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:flex-end;padding:0 12px 12px;gap:8px;">
+          <div style="display:flex;align-items:center;gap:8px;">
+            <button data-kwiq-voice="" title="Voice input" aria-label="Voice input" style="width:38px;height:38px;flex:none;border:none;border-radius:999px;background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#3D424D;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M8.25 5.25C8.25 3.17893 9.92893 1.5 12 1.5C14.0711 1.5 15.75 3.17893 15.75 5.25V10.5H18.75C19.1642 10.5 19.5 10.8358 19.5 11.25C19.5 11.6642 19.1642 12 18.75 12V12.75C18.75 16.2244 16.125 19.0857 12.75 19.4588V21H16.5C16.9142 21 17.25 21.3358 17.25 21.75C17.25 22.1642 16.9142 22.5 16.5 22.5H7.5C7.08579 22.5 6.75 22.1642 6.75 21.75C6.75 21.3358 7.08579 21 7.5 21H11.25V19.4588C7.87504 19.0857 5.25 16.2244 5.25 12.75V12C4.83579 12 4.5 11.6642 4.5 11.25C4.5 10.8358 4.83579 10.5 5.25 10.5H8.25V5.25ZM9.75 10.5H14.25V5.25C14.25 4.00736 13.2426 3 12 3C10.7574 3 9.75 4.00736 9.75 5.25V10.5ZM6.75 12V12.75C6.75 15.6495 9.10051 18 12 18C14.8995 18 17.25 15.6495 17.25 12.75V12H15.75V12.75C15.75 14.8211 14.0711 16.5 12 16.5C9.92893 16.5 8.25 14.8211 8.25 12.75V12H6.75ZM9.75 12V12.75C9.75 13.9926 10.7574 15 12 15C13.2426 15 14.25 13.9926 14.25 12.75V12H9.75Z" fill="currentColor"></path></svg>
+            </button>
+            <button data-kwiq-send="" title="Send" aria-label="Send" style="width:38px;height:38px;flex:none;border:none;border-radius:999px;background:linear-gradient(90deg,#6730B4,#1273C9,#017C98);cursor:pointer;display:flex;align-items:center;justify-content:center;color:#fff;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.71967 8.46967C4.42678 8.76256 4.42678 9.23744 4.71967 9.53033C5.01256 9.82322 5.48744 9.82322 5.78033 9.53033L11.25 4.06066V21.75C11.25 22.1642 11.5858 22.5 12 22.5C12.4142 22.5 12.75 22.1642 12.75 21.75V4.06066L18.2197 9.53033C18.5126 9.82322 18.9874 9.82322 19.2803 9.53033C19.5732 9.23744 19.5732 8.76256 19.2803 8.46967L12.5303 1.71967C12.2374 1.42678 11.7626 1.42678 11.4697 1.71967L4.71967 8.46967Z" fill="#fff"></path></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+        <p data-kwiq-disclaimer="" style="flex:none;margin:0;padding:4px 24px 16px;text-align:center;font:var(--fw-regular) 12px/16px var(--font-sans);color:var(--label-secondary);">AI output must be reviewed for accuracy, suitability for their intended purpose, and compliance with the Fair Housing Act. <a href="#" data-kwiq-learn="" style="color:var(--action);font-weight:var(--fw-bold);text-decoration:none;">Learn more.</a></p>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ===================== KWIQ PITCH DECK VIEWER ===================== -->
+  <div data-deck-overlay="" style="position:fixed;inset:0;background:rgba(16,18,24,.82);opacity:0;pointer-events:none;transition:opacity .25s ease;z-index:120;display:flex;align-items:center;justify-content:center;padding:28px;">
+    <div style="width:min(960px,94vw);display:flex;flex-direction:column;gap:16px;align-items:center;">
+      <div data-deck-stage="" style="position:relative;width:100%;aspect-ratio:16/9;border-radius:14px;box-shadow:var(--shadow32);overflow:hidden;background:#fff;">
+        <div data-deck-frame="" style="position:absolute;top:0;left:0;width:960px;height:540px;transform-origin:top left;"></div>
+      </div>
+      <div style="display:flex;align-items:center;gap:20px;">
+        <button data-deck-prev="" data-deck-nav="" title="Previous" style="width:44px;height:44px;border-radius:50%;border:none;background:rgba(255,255,255,.16);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .12s;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"></path></svg></button>
+        <span data-deck-counter="" style="color:#fff;font:var(--fw-bold) 14px/1 var(--font-sans);min-width:56px;text-align:center;">1 / 8</span>
+        <button data-deck-next="" data-deck-nav="" title="Next" style="width:44px;height:44px;border-radius:50%;border:none;background:rgba(255,255,255,.16);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .12s;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"></path></svg></button>
+      </div>
+    </div>
+    <button data-deck-close="" data-deck-nav="" title="Close" style="position:absolute;top:18px;right:20px;width:44px;height:44px;border-radius:50%;border:none;background:rgba(255,255,255,.16);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .12s;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12"></path><path d="M18 6L6 18"></path></svg></button>
+  </div>
+
+  <!-- ===================== CMA PDF PREVIEW ===================== -->
+  <div data-cma-overlay="" style="position:fixed;inset:0;background:rgba(16,18,24,.82);opacity:0;pointer-events:none;transition:opacity .25s ease;z-index:130;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;gap:14px;">
+    <div style="width:min(900px,94vw);display:flex;align-items:center;gap:12px;color:#fff;">
+      <span style="width:34px;height:40px;flex:none;border-radius:6px;background:rgba(255,255,255,.16);display:flex;align-items:center;justify-content:center;font:var(--fw-extrabold) 10px/1 var(--font-sans);letter-spacing:.5px;">PDF</span>
+      <div style="flex:1;min-width:0;"><div data-cma-ov-title="" style="font:var(--fw-bold) 16px/20px var(--font-sans);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">CMA</div><div style="font:var(--fw-regular) 12px/16px var(--font-sans);opacity:.7;">Comparative Market Analysis</div></div>
+      <button data-cma-print="" type="button" title="Save as PDF" style="height:38px;display:flex;align-items:center;gap:8px;padding:0 16px;border:none;border-radius:8px;background:rgba(255,255,255,.16);color:#fff;cursor:pointer;font:var(--fw-bold) 13px/1 var(--font-sans);"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11"></path><path d="M7 11l5 5 5-5"></path><path d="M5 20h14"></path></svg>Download</button>
+      <button data-cma-close="" title="Close" style="width:38px;height:38px;flex:none;border-radius:50%;border:none;background:rgba(255,255,255,.16);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12"></path><path d="M18 6L6 18"></path></svg></button>
+    </div>
+    <div data-cma-scroll="" style="width:min(900px,94vw);flex:1;min-height:0;border-radius:12px;overflow-y:auto;overflow-x:hidden;box-shadow:var(--shadow32);background:var(--kw-neutral-200);padding:18px;display:flex;flex-direction:column;align-items:center;gap:16px;">
+      <div data-cma-pages="" style="display:flex;flex-direction:column;align-items:center;gap:16px;width:100%;"></div>
+      <div data-cma-loading="" style="display:none;flex-direction:column;align-items:center;gap:12px;color:var(--label-secondary);padding:60px 0;">
+        <span style="width:26px;height:26px;border:3px solid var(--kw-neutral-300);border-top-color:var(--action);border-radius:50%;animation:kwiqSpin .7s linear infinite;"></span>
+        <span style="font:var(--fw-bold) 13px/18px var(--font-sans);">Loading CMA…</span>
+      </div>
+    </div>
+  </div>
+</div>
+</x-dc>
+
+<!-- Component logic lives in js/kwiq.js. The dc runtime reads it from this tag, so the loader below fills it in before booting the runtime. -->
+<script type="text/x-dc" data-dc-script="" data-props="{
+  &quot;accent&quot;: {&quot;editor&quot;: &quot;color&quot;, &quot;default&quot;: &quot;#006C84&quot;, &quot;options&quot;: [&quot;#006C84&quot;, &quot;#0F5EAD&quot;, &quot;#6730B4&quot;, &quot;#026E24&quot;, &quot;#CE011F&quot;]},
+  &quot;agentFirstName&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;Nina&quot;},
+  &quot;unreadCount&quot;: {&quot;editor&quot;: &quot;int&quot;, &quot;default&quot;: 211, &quot;min&quot;: 0, &quot;max&quot;: 999}
+}">
+</script>
+<script>
+  fetch('js/kwiq.js', { cache: 'no-store' })
+    .then(function (r) { if (!r.ok) throw new Error(r.status); return r.text(); })
+    .then(function (code) {
+      document.querySelector('script[data-dc-script]').textContent = code;
+      var s = document.createElement('script');
+      s.src = 'vendor/dc-runtime.js';
+      document.head.appendChild(s);
+    })
+    .catch(function (e) {
+      document.body.insertAdjacentHTML('afterbegin', '<p style="font:14px sans-serif;padding:24px">Couldn’t load js/kwiq.js (' + e.message + '). Serve this folder over HTTP — see README.md.</p>');
+    });
+</script>
+</body></html>

@@ -1,0 +1,125 @@
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;height:100%;font-family:var(--font-sans);}
+  [data-dash-root] *::-webkit-scrollbar{width:10px;height:10px;}
+  [data-dash-root] *::-webkit-scrollbar-thumb{background:var(--kw-neutral-300);border-radius:8px;border:2px solid var(--page-background);}
+  @keyframes kwiqDot{0%,80%,100%{transform:translateY(0);opacity:.35}40%{transform:translateY(-4px);opacity:1}}
+  @keyframes kwiqSpin{to{transform:rotate(360deg)}}
+  @keyframes kwiqIn{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
+  [data-dash-root] [data-lead-action]:hover{background:var(--action) !important;color:#fff !important;}
+  [data-dash-root] [data-deck-overlay] [data-deck-nav]:hover{background:rgba(255,255,255,.3) !important;}
+  [data-dash-root] [data-body-row]{transition:margin-right .3s cubic-bezier(.4,0,.2,1);}
+  [data-dash-root] [data-kwiq-prompt]{transition:background .14s ease,box-shadow .14s ease,transform .14s ease;}
+  [data-dash-root] [data-kwiq-prompt]:hover{background:var(--neutral-actionHoverFill, rgba(61, 66, 77, 0.10)) !important;box-shadow:var(--shadow04);transform:translateY(-1px);}
+  [data-dash-root] [data-kwiq-prompt]:active{transform:translateY(0);box-shadow:none;}
+  /* ---- Concierge AI surface ---- */
+  @property --mk-angle{syntax:"<angle>";initial-value:0deg;inherits:false;}
+  @keyframes mk-spin{to{--mk-angle:360deg;}}
+  /* Composer: purple → blue → teal gradient stroke at 50% at rest (no glow); full-strength stroke + feathered glow fade in on focus. */
+  [data-dash-root] [data-kwiq-composer]{position:relative;}
+  /* Feathered glow: a blurred copy of the gradient behind the opaque card — only the soft outward spill shows. */
+  [data-dash-root] [data-kwiq-composer]::before{content:"";position:absolute;top:8px;left:24px;right:24px;bottom:24px;border-radius:16px;background:linear-gradient(90deg,#6730B4,#1273C9,#017C98);filter:blur(16px);opacity:0;transition:opacity .35s ease;pointer-events:none;z-index:0;}
+  [data-dash-root] [data-kwiq-composer]:focus-within::before{opacity:.3;transition:opacity .4s ease;}
+  [data-dash-root] [data-kwiq-cbox]{transition:border-color .2s ease,box-shadow .2s ease;border:1px solid transparent;background:#fff;box-shadow:var(--shadow12);position:relative;z-index:1;}
+  /* Gradient ring on its own layer so it can fade (gradient borders can't transition). Fades in on focus, fast fade-out on blur. */
+  [data-dash-root] [data-kwiq-cbox]::after{content:"";position:absolute;inset:-1px;border-radius:inherit;padding:1px;background:linear-gradient(90deg,#6730B4,#1273C9,#017C98);-webkit-mask:linear-gradient(#000,#000) content-box,linear-gradient(#000,#000);-webkit-mask-composite:xor;mask-composite:exclude;opacity:.5;transition:opacity .2s ease;pointer-events:none;}
+  [data-dash-root] [data-kwiq-cbox]:focus-within::after{opacity:1;transition:opacity .4s ease;}
+  @media (prefers-reduced-motion:reduce){[data-dash-root] [data-kwiq-cbox],[data-dash-root] [data-kwiq-cbox]::after,[data-dash-root] [data-kwiq-composer]::before{transition:none !important;}}
+  /* Welcome surface: drop the docked composer's vertical padding so the slot margins set the gaps exactly (32 above, 24 below). */
+  [data-dash-root] [data-kwiq-composer-slot] [data-kwiq-composer]{padding-top:0 !important;padding-bottom:0 !important;}
+  [data-dash-root] [data-kwiq-composer-slot] [data-kwiq-composer]::before{top:0;bottom:0;}
+  /* Welcome surface sits at the optical center: free space splits 2 above : 3 below. */
+  [data-dash-root] [data-kwiq-empty]::before{content:"";flex:2 1 0;}
+  [data-dash-root] [data-kwiq-empty]::after{content:"";flex:3 1 0;}
+  /* Sparkle: stars pop in one by one on open (kept subtle: short travel, small overshoot). */
+  @keyframes kwiqStarPop{0%{transform:scale(.3) rotate(-32deg);opacity:0}60%{transform:scale(1.14) rotate(6deg);opacity:1}100%{transform:scale(1) rotate(0);opacity:1}}
+  [data-dash-root] [data-kwiq-eyebrow] path{transform-box:fill-box;transform-origin:center;}
+  [data-dash-root] [data-kwiq-eyebrow][data-anim="load"] path{animation:kwiqStarPop .55s cubic-bezier(.34,1.56,.64,1) both;}
+  [data-dash-root] [data-kwiq-eyebrow][data-anim="load"] path:nth-child(1){animation-delay:.15s;}
+  [data-dash-root] [data-kwiq-eyebrow][data-anim="load"] path:nth-child(2){animation-delay:.3s;}
+  [data-dash-root] [data-kwiq-eyebrow][data-anim="load"] path:nth-child(3){animation-delay:.42s;}
+  @media (prefers-reduced-motion:reduce){[data-dash-root] [data-kwiq-eyebrow] svg,[data-dash-root] [data-kwiq-eyebrow] path{animation:none !important;}}
+  /* ---- Assistant modal width: fixed at 1440 (the history-open size), centered over the area right of the side nav.
+     Opening the 320 history rail doesn't grow the modal; the chat column gives up the space instead.
+     Falls back to 64px margins either side when the screen is narrower. ---- */
+  [data-dash-root] [data-kwiq-drawer]{width:min(1440px, calc(100vw - 192px));}
+  /* ---- Assistant modal: chat history rail ---- */
+  [data-dash-root] [data-kwiq-history]{transition:width .24s cubic-bezier(.4,0,.2,1),border-color .24s ease;}
+  [data-dash-root] [data-kwiq-drawer][data-history-closed] [data-kwiq-history]{width:0 !important;border-right-color:transparent !important;}
+  [data-dash-root] [data-kwiq-hist-item]{display:flex;align-items:center;gap:8px;width:100%;min-height:44px;padding:0 8px 0 12px;border:none;border-radius:8px;background:transparent;cursor:pointer;text-align:left;font:var(--fw-regular) 14px/20px var(--font-sans);color:var(--label-primary);}
+  [data-dash-root] [data-kwiq-hist-item]:hover{background:var(--kw-neutral-100);}
+  [data-dash-root] [data-kwiq-hist-item][data-active]{background:var(--action-hover-fill);color:var(--action);font-weight:var(--fw-bold);}
+  [data-dash-root] [data-kwiq-hist-item] > span:first-child{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+  [data-dash-root] [data-kwiq-hist-del]{display:none;width:28px;height:28px;flex:none;align-items:center;justify-content:center;border-radius:6px;color:var(--label-tertiary);}
+  [data-dash-root] [data-kwiq-hist-del]:hover{background:var(--container-tinted);color:var(--status-danger);}
+  [data-dash-root] [data-kwiq-history][data-editing] [data-kwiq-hist-del]{display:flex;}
+  [data-dash-root] [data-kwiq-hist-group]:not(:has([data-kwiq-hist-item])){display:none;}
+  [data-dash-root] [data-cma-field]:focus{outline:none;border-color:var(--action) !important;box-shadow:0 0 0 3px var(--kw-system-tint);}
+  [data-dash-root] [role=listbox] [role=option]:hover{background:var(--kw-neutral-100) !important;}
+  [data-dash-root] [data-cma-crumb]:hover{background:var(--kw-neutral-100) !important;}
+  [data-dash-root] [data-kwiq-hist-toggle]:hover,[data-dash-root] [data-kwiq-newchat]:hover{background:var(--kw-neutral-100) !important;}
+  /* New Chat = XDS elevated button (md): 40px, Mulish 14/700, 4px radius, shadow04; pressed uses shadow04Inset (derived: no token in this file). */
+  [data-dash-root] [data-kwiq-newchat]:active{box-shadow:inset 0px 2px 4px 0px rgba(43,43,51,0.05), inset 0px 0px 1px 0px rgba(43,43,51,0.4) !important;}
+  [data-dash-root] [data-kwiq-hist-edit]:hover{text-decoration:underline;}
+  [data-dash-root] [data-kwiq-open]{transition:filter .15s ease;}
+  [data-dash-root] [data-kwiq-open]:hover{filter:brightness(1.15);}
+  [data-dash-root] [data-kwiq-voice]{transition:background .16s ease;}
+  [data-dash-root] [data-kwiq-voice]:hover{background:var(--neutral-actionHoverFill, rgba(61, 66, 77, 0.10)) !important;}
+  /* Animated placeholder: rotating agent examples that fade out + up. The native placeholder stays for screen readers but is hidden visually; :placeholder-shown hides the overlay as soon as there's text. */
+  [data-dash-root] [data-kwiq-input]::placeholder{color:transparent;}
+  [data-dash-root] [data-kwiq-ph]{position:absolute;inset:0;overflow:hidden;pointer-events:none;text-align:left;font:var(--fw-regular) 16px/24px var(--font-sans);color:var(--label-tertiary);transition:opacity .15s ease;}
+  [data-dash-root] [data-kwiq-input]:not(:placeholder-shown) + [data-kwiq-ph]{opacity:0;}
+  /* Response screen: no placeholder in the docked composer. */
+  [data-dash-root] [data-kwiq-drawer][data-kwiq-chat] [data-kwiq-ph]{display:none;}
+  [data-dash-root] [data-kwiq-ph-text]{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:opacity .4s ease,transform .4s cubic-bezier(.4,0,.2,1);}
+  [data-dash-root] [data-kwiq-ph-text][data-out]{opacity:0;transform:translateY(-10px);}
+  [data-dash-root] [data-kwiq-ph-text][data-below]{opacity:0;transform:translateY(10px);transition:none;}
+  @media (prefers-reduced-motion:reduce){[data-dash-root] [data-kwiq-ph-text],[data-dash-root] [data-kwiq-ph-text][data-out]{transform:none;}}
+  /* Response screen: the message column spans the full modal so the scrollbar sits on its right edge, and padding lines content up with the composer box (760 max - 2x24 = 712px). The always-reserved 10px scrollbar gutter comes off the right padding. */
+  [data-dash-root] [data-kwiq-drawer][data-kwiq-chat] [data-kwiq-messages]{max-width:none !important;margin:0 !important;overflow-y:scroll !important;padding-left:max(24px, calc((100% - 712px) / 2)) !important;padding-right:calc(max(24px, calc((100% - 712px) / 2)) - 10px) !important;}
+  /* Response screen composer: single-row pill (text left, mic + send right) with the legal line underneath. */
+  [data-dash-root] [data-kwiq-drawer][data-kwiq-chat] [data-kwiq-composer]{padding-bottom:12px !important;}
+  [data-dash-root] [data-kwiq-drawer][data-kwiq-chat] [data-kwiq-composer]::before{border-radius:999px;}
+  [data-dash-root] [data-kwiq-drawer][data-kwiq-chat] [data-kwiq-cbox]{display:flex;align-items:center;border-radius:999px !important;}
+  [data-dash-root] [data-kwiq-drawer][data-kwiq-chat] [data-kwiq-cbox] > div:first-child{flex:1;min-width:0;padding:0 8px 0 24px !important;}
+  [data-dash-root] [data-kwiq-drawer][data-kwiq-chat] [data-kwiq-cbox] > div:last-child{flex:none;padding:11px 11px 11px 0 !important;}
+  [data-dash-root] [data-kwiq-drawer][data-kwiq-chat] [data-kwiq-voice] svg{width:24px;height:24px;}
+  [data-dash-root] [data-kwiq-drawer][data-kwiq-chat] [data-kwiq-disclaimer]{padding:8px 24px 20px !important;font-size:14px !important;line-height:20px !important;}
+  /* Scrollbar thumb only shows while scrolling. */
+  [data-dash-root] [data-kwiq-messages]::-webkit-scrollbar-thumb{background:transparent;border-color:transparent;}
+  [data-dash-root] [data-kwiq-messages][data-scrolling]::-webkit-scrollbar-thumb{background:var(--kw-neutral-300);border-color:var(--page-background);}
+  /* Response screen motion: smooth scrolling, cascade-in for new content, and edge fades where content overflows. */
+  @keyframes kwiqBuilderIn{from{opacity:0;transform:scale(.985);}to{opacity:1;transform:none;}}
+  @keyframes kwiqRespIn{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:none;}}
+  @property --kwiq-ft{syntax:"<length>";inherits:false;initial-value:0px;}
+  @property --kwiq-fb{syntax:"<length>";inherits:false;initial-value:0px;}
+  [data-dash-root] [data-kwiq-messages]{scroll-behavior:smooth;transition:--kwiq-ft .2s ease,--kwiq-fb .2s ease;-webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 var(--kwiq-ft),#000 calc(100% - var(--kwiq-fb)),transparent 100%);mask-image:linear-gradient(to bottom,transparent 0,#000 var(--kwiq-ft),#000 calc(100% - var(--kwiq-fb)),transparent 100%);}
+  @media (prefers-reduced-motion:reduce){[data-dash-root] [data-kwiq-messages]{scroll-behavior:auto;}}
+  /* Response screen header: summary title beside the history toggle, divider below. Hidden on the welcome screen. */
+  [data-dash-root] [data-kwiq-chat-head]{display:none;}
+  [data-dash-root] [data-kwiq-drawer][data-kwiq-chat] [data-kwiq-chat-head]{display:flex;align-items:center;flex:none;height:72px;padding:0 16px 0 72px;gap:16px;position:relative;}
+  /* Divider inset 16px each side so it lines up with the history panel button. */
+  [data-dash-root] [data-kwiq-drawer][data-kwiq-chat] [data-kwiq-chat-head]::after{content:"";position:absolute;left:16px;right:16px;bottom:0;height:1px;background:var(--divider);}
+  [data-dash-root] [data-kwiq-chat-title]{font:var(--fw-bold) 16px/24px var(--font-sans);color:var(--label-primary);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;animation:kwiqRespIn .45s cubic-bezier(.16,1,.3,1) both;}
+  /* CMA settings: range sliders (dual-thumb = two stacked inputs; only the thumbs take pointer events). */
+  [data-dash-root] [data-cma-range] input[type=range]{position:absolute;left:0;right:0;top:0;width:100%;height:24px;margin:0;background:transparent;-webkit-appearance:none;appearance:none;pointer-events:none;}
+  [data-dash-root] [data-cma-range] input[type=range]::-webkit-slider-runnable-track{background:transparent;height:24px;}
+  [data-dash-root] [data-cma-range] input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;pointer-events:auto;width:20px;height:20px;margin-top:2px;border-radius:50%;background:#fff;border:2px solid var(--action);box-shadow:var(--shadow04);cursor:grab;}
+  [data-dash-root] [data-cma-range] input[type=range]::-moz-range-thumb{pointer-events:auto;width:16px;height:16px;border-radius:50%;background:#fff;border:2px solid var(--action);box-shadow:var(--shadow04);cursor:grab;}
+  [data-dash-root] [data-cma-range] input[type=range]:focus-visible::-webkit-slider-thumb{outline:2px solid var(--action);outline-offset:2px;}
+  [data-dash-root] [data-kwiq-send]{transition:filter .16s ease,transform .12s ease;}
+  [data-dash-root] [data-kwiq-send]:hover{filter:brightness(.9);}
+  [data-dash-root] [data-kwiq-send]:active{transform:scale(.94);}
+
+/* Download = print just the CMA report (Save as PDF). kwiqCmaPrint toggles html.kw-print-cma. */
+@media print {
+  @page { margin: 12mm; }
+  html.kw-print-cma, html.kw-print-cma body { background: #fff !important; height: auto !important; overflow: visible !important; }
+  html.kw-print-cma body * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  html.kw-print-cma [data-dash-root] { height: auto !important; overflow: visible !important; display: block !important; background: #fff !important; }
+  html.kw-print-cma [data-dash-root] > *:not([data-cma-overlay]) { display: none !important; }
+  html.kw-print-cma [data-cma-overlay] { position: static !important; display: block !important; opacity: 1 !important; background: none !important; padding: 0 !important; }
+  html.kw-print-cma [data-cma-overlay] > *:not([data-cma-scroll]) { display: none !important; }
+  html.kw-print-cma [data-cma-scroll] { width: 100% !important; overflow: visible !important; display: block !important; background: none !important; box-shadow: none !important; padding: 0 !important; border-radius: 0 !important; }
+  html.kw-print-cma [data-cma-pages] > div { max-width: none !important; box-shadow: none !important; border-radius: 0 !important; }
+  html.kw-print-cma [data-cma-comp] { break-inside: avoid; }
+}

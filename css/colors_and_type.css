@@ -1,0 +1,263 @@
+/* ============================================================
+   kw XDS Design System — Colors & Type Foundations
+   Source: XDS-Master.fig (Color-Tokens, Typography pages) +
+   XDS Foundations.pdf. Light theme is the default (applets);
+   dark theme (.xds-dark) is used for Command shell/console chrome.
+   ============================================================ */
+
+/* ---------- Fonts ---------- */
+/* Mulish — sole interface font (Vernon Adams, via Google Fonts).
+   Shipped here as a variable TTF. IBM Plex Mono is the monospace
+   companion; IBM Plex Sans is used in design documentation only. */
+@font-face {
+  font-family: "Mulish";
+  src: url("../assets/fonts/Mulish-Variable.ttf") format("truetype");
+  font-weight: 200 1000;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Mulish";
+  src: url("../assets/fonts/Mulish-Italic-Variable.ttf") format("truetype");
+  font-weight: 200 1000;
+  font-style: italic;
+  font-display: swap;
+}
+/* IBM Plex Mono / Sans expected from Google Fonts CDN:
+   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans:wght@400;700&display=swap" rel="stylesheet"> */
+
+:root {
+  /* ============================================================
+     RAW PALETTE — 8 palettes (2 core, 6 supplementary).
+     These are the underlying hues; prefer the semantic tokens below.
+     ============================================================ */
+  /* Neutral (gray) — default UI, text, inactive */
+  --kw-neutral-900: rgb(40,43,51);    /* #282B33 labelPrimary */
+  --kw-neutral-800: rgb(43,43,51);    /* #2B2B33 shell base / shadow source */
+  --kw-neutral-700: rgb(61,66,77);    /* #3D424D labelSecondary / neutral.action */
+  --kw-neutral-500: rgb(108,114,126); /* #6C727E labelTertiary */
+  --kw-neutral-400: rgb(174,178,186);
+  --kw-neutral-300: rgb(200,203,208);
+  --kw-neutral-200: rgb(228,229,231); /* #E4E5E7 containerTinted */
+  --kw-neutral-100: rgb(247,247,248); /* #F7F7F8 pageBackground */
+  --kw-neutral-000: rgb(255,255,255); /* #FFFFFF containerBackground */
+  --kw-shell-bg:    rgb(23,24,28);    /* #17181C dark pageBackground */
+
+  /* System (teal) — PRIMARY accent: buttons, links, active elements */
+  --kw-system:        rgb(0,108,132);   /* #006C84 */
+  --kw-system-hover:  rgb(14,78,93);    /* #0E4E5D */
+  --kw-system-active: rgb(1,124,152);   /* #017C98 */
+  --kw-system-tint:   rgb(213,247,255); /* #D5F7FF */
+
+  /* Red — danger / destructive / error */
+  --kw-red:        rgb(197,5,11);    /* #C5050B */
+  --kw-red-hover:  rgb(129,9,32);    /* #810920 */
+  --kw-red-active: rgb(222,33,33);
+  --kw-red-tint:   rgb(252,220,221);
+
+  /* Orange — warning */
+  --kw-orange:        rgb(167,59,6);  /* #A73B06 */
+  --kw-orange-hover:  rgb(119,49,15);
+  --kw-orange-tint:   rgb(254,223,207);
+
+  /* Yellow — pending / draft / in progress */
+  --kw-yellow:        rgb(153,94,0);  /* #995E00 */
+  --kw-yellow-hover:  rgb(112,69,0);
+  --kw-yellow-tint:   rgb(255,237,201);
+
+  /* Green — success */
+  --kw-green:        rgb(2,110,36);   /* #026E24 */
+  --kw-green-hover:  rgb(11,76,31);
+  --kw-green-tint:   rgb(214,242,223);
+
+  /* Blue — informative / low-stakes alerts */
+  --kw-blue:        rgb(15,94,173);   /* #0F5EAD */
+  --kw-blue-hover:  rgb(29,70,112);
+  --kw-blue-tint:   rgb(217,239,255);
+
+  /* Purple — help / support / onboarding */
+  --kw-purple:        rgb(103,48,180); /* #6730B4 */
+  --kw-purple-hover:  rgb(77,46,120);
+  --kw-purple-tint:   rgb(239,232,251);
+
+  /* Brand */
+  --kw-brand-red: #CE011F; /* kw logo square */
+
+  /* ============================================================
+     SEMANTIC TOKENS — LIGHT THEME (default; applets)
+     Use these in product UI, not the raw palette.
+     ============================================================ */
+  /* Labels / text */
+  --label-primary:   rgb(40,43,51);
+  --label-secondary: rgb(61,66,77);
+  --label-tertiary:  rgb(108,114,126);
+  --label-inverse:   rgb(255,255,255);
+
+  /* Backgrounds */
+  --page-background:        rgb(247,247,248);
+  --container-background:   rgb(255,255,255);
+  --container-tinted:       rgb(228,229,231);
+  --container-tinted-inverse: rgb(61,66,77);
+
+  /* Lines */
+  --outline:  rgba(61,66,77,0.2);
+  --divider:  rgba(43,43,51,0.1);
+
+  /* Actions — default palette is SYSTEM (teal) */
+  --action:               rgb(0,108,132);
+  --action-hover:         rgb(14,78,93);
+  --action-hover-fill:    rgba(0,108,132,0.1);
+  --action-active:        rgb(1,124,152);
+  --action-active-fill:   rgba(0,108,132,0.2);
+  --action-focus-outline: rgba(0,108,132,0.3);
+
+  /* Neutral actions (some buttons/inputs) */
+  --action-neutral:        rgb(61,66,77);
+  --action-neutral-hover:  rgb(40,43,51);
+  --action-neutral-active: rgb(87,94,107);
+
+  /* Overlays (neutral only) */
+  --overlay-darken:  rgba(43,43,51,0.6);
+  --overlay-lighten: rgba(247,247,248,0.6);
+
+  /* Semantic status (label-strength values, light theme) */
+  --status-danger:  rgb(197,5,11);
+  --status-warning: rgb(167,59,6);
+  --status-pending: rgb(153,94,0);
+  --status-success: rgb(2,110,36);
+  --status-info:    rgb(15,94,173);
+  --status-help:    rgb(103,48,180);
+
+  /* ============================================================
+     ELEVATION — container & bar shadows (light theme)
+     ============================================================ */
+  --shadow04: 0px 2px 4px 0px rgba(43,43,51,0.05), 0px 0px 1px 0px rgba(43,43,51,0.4);
+  --shadow12: 0px 6px 12px 0px rgba(43,43,51,0.05), 0px 3px 6px 0px rgba(43,43,51,0.05), 0px 0px 1px 0px rgba(43,43,51,0.2);
+  --shadow32: 0px 16px 32px 0px rgba(43,43,51,0.1), 0px 8px 16px 0px rgba(43,43,51,0.1), 0px 2px 4px 0px rgba(43,43,51,0.1), 0px 0px 1px 0px rgba(43,43,51,0.4);
+  --shadow04-inset: inset 0px 2px 4px 0px rgba(43,43,51,0.05), inset 0px 0px 1px 0px rgba(43,43,51,0.4);
+  --bar-header: 0px 1px 0px 0px rgba(43,43,51,0.1);
+  --bar-footer: 0px -1px 0px 0px rgba(43,43,51,0.1);
+  --bar-elevated: 0px 0px 12px 0px rgba(43,43,51,0.08), 0px 0px 6px 0px rgba(43,43,51,0.06), 0px 0px 1px 0px rgba(43,43,51,0.4);
+  --shell-bar: 0px 2px 12px 0px rgba(0,0,0,0.15), 0px 1px 6px 0px rgba(0,0,0,0.15), 0px 0px 1px 0px rgba(0,0,0,0.8);
+
+  /* ============================================================
+     SPACING — 8px base unit (4px half-step)
+     ============================================================ */
+  --space-0: 0px;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 40px;
+  --space-8: 48px;
+  --space-9: 64px;
+  --grid-gutter: 16px;
+  --grid-padding: 16px;
+
+  /* ============================================================
+     RADII — components use small radii (4px default)
+     ============================================================ */
+  --radius-sm: 2px;
+  --radius-md: 4px;   /* buttons, inputs, chips, default */
+  --radius-lg: 8px;   /* cards, larger containers */
+  --radius-xl: 16px;
+  --radius-pill: 999px;
+
+  /* ============================================================
+     TYPOGRAPHY — families
+     ============================================================ */
+  --font-sans: "Mulish", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --font-docs: "IBM Plex Sans", system-ui, sans-serif; /* documentation only */
+
+  /* Weights */
+  --fw-regular: 400;
+  --fw-bold: 700;
+  --fw-extrabold: 800;
+}
+
+/* ============================================================
+   DARK THEME — Command shell / console chrome (.xds-dark)
+   ============================================================ */
+.xds-dark {
+  --label-primary:   rgb(247,247,248);
+  --label-secondary: rgb(200,203,208);
+  --label-tertiary:  rgb(145,150,161);
+  --label-inverse:   rgb(23,24,28);
+
+  --page-background:      rgb(23,24,28);
+  --container-background: rgb(40,43,51);
+  --container-tinted:     rgb(61,66,77);
+  --container-tinted-inverse: rgb(200,203,208);
+
+  --outline:  rgba(200,203,208,0.3);
+  --divider:  rgba(174,178,186,0.2);
+
+  --action:               rgb(88,216,245);
+  --action-hover:         rgb(213,247,255);
+  --action-hover-fill:    rgba(88,216,245,0.2);
+  --action-active:        rgb(12,173,211);
+  --action-active-fill:   rgba(88,216,245,0.3);
+  --action-focus-outline: rgba(88,216,245,0.4);
+
+  --action-neutral:        rgb(200,203,208);
+  --action-neutral-hover:  rgb(228,229,231);
+  --action-neutral-active: rgb(174,178,186);
+
+  --overlay-darken:  rgba(0,0,0,0.6);
+  --overlay-lighten: rgba(40,43,51,0.6);
+
+  --status-danger:  rgb(255,134,134);
+  --status-warning: rgb(254,155,103);
+  --status-pending: rgb(255,206,108);
+  --status-success: rgb(113,218,145);
+  --status-info:    rgb(131,196,254);
+  --status-help:    rgb(199,159,255);
+
+  --shadow04: 0px 2px 4px 0px rgba(0,0,0,0.2), 0px 0px 1px 0px rgba(0,0,0,0.6);
+  --shadow12: 0px 6px 12px 0px rgba(0,0,0,0.2), 0px 3px 6px 0px rgba(0,0,0,0.2), 0px 0px 1px 0px rgba(0,0,0,0.6);
+  --shadow32: 0px 16px 32px 0px rgba(0,0,0,0.3), 0px 8px 16px 0px rgba(0,0,0,0.3), 0px 0px 1px 0px rgba(0,0,0,0.8);
+}
+
+/* ============================================================
+   SEMANTIC TYPE STYLES — XDS scale (fontSize tokens combine
+   size + line-height). Default interface weight is Bold for
+   titles/labels; body is Regular. All map to Mulish.
+   ============================================================ */
+.xds-display-lg      { font: var(--fw-regular) 48px/56px var(--font-sans); }
+.xds-display-lg-bold { font: var(--fw-extrabold) 48px/56px var(--font-sans); }
+.xds-display-md      { font: var(--fw-regular) 40px/48px var(--font-sans); }
+.xds-display-md-bold { font: var(--fw-extrabold) 40px/48px var(--font-sans); }
+
+.xds-title-xl      { font: var(--fw-regular) 32px/40px var(--font-sans); }
+.xds-title-xl-bold { font: var(--fw-extrabold) 32px/40px var(--font-sans); }
+.xds-title-lg      { font: var(--fw-regular) 24px/32px var(--font-sans); }
+.xds-title-lg-bold { font: var(--fw-extrabold) 24px/32px var(--font-sans); }  /* H1 */
+.xds-title-md      { font: var(--fw-regular) 20px/24px var(--font-sans); }
+.xds-title-md-bold { font: var(--fw-extrabold) 20px/24px var(--font-sans); }  /* H2 */
+.xds-title-sm      { font: var(--fw-regular) 16px/20px var(--font-sans); }
+.xds-title-sm-bold { font: var(--fw-bold) 16px/20px var(--font-sans); }       /* H3 */
+
+.xds-subtitle-lg { font: var(--fw-bold) 16px/20px var(--font-sans); letter-spacing: 1.6px; text-transform: uppercase; }
+.xds-subtitle-md { font: var(--fw-bold) 12px/16px var(--font-sans); letter-spacing: 1.2px; text-transform: uppercase; } /* table headers */
+.xds-subtitle-sm { font: var(--fw-bold) 10px/12px var(--font-sans); letter-spacing: 1px;   text-transform: uppercase; }
+
+.xds-text-lg        { font: var(--fw-regular) 16px/24px var(--font-sans); }   /* intro text */
+.xds-text-lg-bold   { font: var(--fw-bold) 16px/24px var(--font-sans); }
+.xds-text-md        { font: var(--fw-regular) 14px/20px var(--font-sans); }   /* body, p, input, table data */
+.xds-text-md-bold   { font: var(--fw-bold) 14px/20px var(--font-sans); }      /* button & link labels, strong */
+.xds-text-sm        { font: var(--fw-regular) 12px/16px var(--font-sans); }   /* helper text, captions */
+.xds-text-sm-bold   { font: var(--fw-bold) 12px/16px var(--font-sans); }      /* chip & input labels, small buttons */
+.xds-text-xs        { font: var(--fw-regular) 10px/12px var(--font-sans); }   /* tiny labels (not body) */
+.xds-text-xs-bold   { font: var(--fw-bold) 10px/12px var(--font-sans); }
+
+/* Convenience semantic aliases */
+.xds-h1 { font: var(--fw-extrabold) 24px/32px var(--font-sans); color: var(--label-primary); }
+.xds-h2 { font: var(--fw-extrabold) 20px/24px var(--font-sans); color: var(--label-primary); }
+.xds-h3 { font: var(--fw-bold) 16px/20px var(--font-sans); color: var(--label-primary); }
+.xds-p  { font: var(--fw-regular) 14px/20px var(--font-sans); color: var(--label-secondary); }
+.xds-link { font: var(--fw-bold) 14px/20px var(--font-sans); color: var(--action); text-decoration: none; cursor: pointer; }
+.xds-link:hover { color: var(--action-hover); text-decoration: underline; }
+.xds-code { font: var(--fw-regular) 14px/20px var(--font-mono); }
